@@ -11,15 +11,16 @@ export default {
         }
       },
       fontFamily: {
-        'principal' : ['Sarabun', 'sans-serif']
+        'principal' : ['Sarabun', 'sans-serif'],
+        'secondary' : ['Lato', 'sans-serif']
       },
       colors: {
-        'color-primary' : "#F5F0DC",
-        'color-primary-orange' : "#F2C070",
-        'color-secondary' : "#314F2F",
-        'color-show-news' : "#CC5F42" ,
-        'color-orange-focus' : "#F58327",
-        'color-secondary-light' : '#5E8F5B'
+        'color-blue-light' : "#ECFDFC",
+        'color-blue-highlight' : "#0EA89B",
+        'color-secondary-highlight' : "#FF832B",
+        'color-secondary' : "#FFF6F0" ,
+        'color-purple-light' : "#F6F0FD",
+        'color-purple-dark' : '#863BE9'
       },
     }
   },
