@@ -1,0 +1,1 @@
+/*Archivo de Typescript para Hiram */
