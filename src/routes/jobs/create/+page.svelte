@@ -1,6 +1,8 @@
 <script>
     import Navpro from "$lib/components/Navpro.svelte";
+    import Footer from "$lib/components/Footer.svelte";
     import "../../../app.css";
+
 </script>
 
 <Navpro></Navpro>
@@ -186,3 +188,4 @@
         </div>
     </div>
 </section>
+<Footer/>

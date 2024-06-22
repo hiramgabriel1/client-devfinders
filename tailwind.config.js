@@ -20,7 +20,8 @@ export default {
         'color-secondary-highlight' : "#FF832B",
         'color-secondary' : "#FFF6F0" ,
         'color-purple-light' : "#F6F0FD",
-        'color-purple-dark' : '#863BE9'
+        'color-purple-dark' : '#863BE9',
+        'color-dark-footer' : '#171A1F'
       },
     }
   },

@@ -2,6 +2,7 @@
     import Navpro from "$lib/components/Navpro.svelte";
     import "../../app.css"
     import user from "$lib/public/images/profile.png";
+    import Footer from "$lib/components/Footer.svelte";
 </script>
 
 
@@ -9,8 +10,8 @@
 
 <section>
     <div class="container py-6">
-        <div class="flex flex-col md:flex-row">
-            <div class="flex flex-col items-center border border-gray-200 rounded-lg py-6 md:64 lg:w-80 xl:w-96 md:justify-center border-b-">
+        <div class="flex flex-col lg:flex-row">
+            <div class="flex flex-col items-center border border-gray-200 rounded-lg py-6 lg:w-80 xl:w-96 md:justify-center border-b-">
                 <div>
                     <img src={user} alt="" class="w-24 h-24 rounded-full md:w-32 md:h-32">
                 </div>
@@ -49,3 +50,5 @@
         </div>
     </div>
 </section>
+
+<Footer></Footer>
