@@ -5,7 +5,7 @@
 <header>
     <nav class="flex items-center justify-between px-3">
         <div class="w-68 py-3 flex items-center">
-            <img src={logo} alt="" class="w-10 h-10 sm:w-16 sm:h-16">
+            <img src={logo} alt="" class="w-10 h-10 lg:w-14 lg:h-14">
             <div class="px-5">
                 <ul class="text-gray-600 hidden lg:flex items-center space-x-6">
                     <li class="hover:text-color-blue-highlight"><a href="Home">Home</a></li>
