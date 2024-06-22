@@ -1,6 +1,7 @@
 <script>
     import "../../app.css";
-    import logo from "$lib/public/images/logo.png"
+    // import logo from "$lib/public/images/logo.png"
+    import logo from  "$lib/public/images/logo.png"
 </script>
 
 <footer>

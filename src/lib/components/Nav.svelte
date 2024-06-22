@@ -1,3 +1,8 @@
+<script>
+    import logo from "$lib/public/images/logo.png"
+    import "../../app.css"
+</script>
+
 <header>
     <nav class="flex items-center justify-between px-3">
         <div class="w-68 py-3 flex items-center">
