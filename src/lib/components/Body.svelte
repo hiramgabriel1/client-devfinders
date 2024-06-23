@@ -1,5 +1,7 @@
-
-<body>
+<script>
+  
+</script>
+<section>
   <div class="flex flex-col items-center">
     <div class="bg-[#ECFDFC] m-[0_0_0_0.1rem] flex flex-row p-[3.3rem_8.3rem_3.3rem_8.3rem] w-[fit-content] box-sizing-border">
       <div class="m-[6.1rem_2.4rem_6.1rem_0] flex flex-col box-sizing-border">
@@ -629,4 +631,4 @@
       
     </div>
   </div>
-</body>
+</section>
