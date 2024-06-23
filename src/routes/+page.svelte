@@ -2,8 +2,9 @@
     import "../app.css";
     import Nav from "$lib/components/Nav.svelte";
     import Footer from "$lib/components/Footer.svelte";
+    import Body from "$lib/components/Body.svelte";
 
 </script>
 <Nav></Nav>
-
-<h1 class="text-4xl text-orange-500">gafete se la come</h1>
+<Body></Body>
+<Footer></Footer>
