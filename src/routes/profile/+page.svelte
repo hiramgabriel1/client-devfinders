@@ -3,6 +3,7 @@
     import "../../app.css"
     import user from "$lib/public/images/profile.png";
     import Footer from "$lib/components/Footer.svelte";
+    import security from "$lib/public/images/private.png";
 </script>
 
 
@@ -10,8 +11,8 @@
 
 <section>
     <div class="container py-6">
-        <div class="flex flex-col lg:flex-row">
-            <div class="flex flex-col items-center border border-gray-200 rounded-lg py-6 lg:w-80 xl:w-96 md:justify-center border-b-">
+        <div class="flex flex-col lg:flex-row lg:space-x-10 space-y-20 lg:space-y-0">
+            <div class="flex flex-col items-center border border-gray-200 rounded-lg py-6 lg:w-80 xl:w-96 md:justify-center relative">
                 <div>
                     <img src={user} alt="" class="w-24 h-24 rounded-full md:w-32 md:h-32">
                 </div>
@@ -44,7 +45,15 @@
                     <div class="py-3 text-center text-white font-secondary">
                         <a href="" class="bg-color-blue-highlight px-16 py-3 rounded">Editar perfil</a>
                     </div>
-    
+                </div>
+            </div>
+            <div class="border border-gray-200 rounded-lg py-6 h-32 w-full">
+                <div class="flex justify-between">
+                    <h3 class="px-3 font-secondary">Analisis</h3>
+                    <div class="flex">
+                        <img src={security} alt="" class="w-5 h-5">
+                        <p class="text-gray-400 text-xs px-3">Private for you</p>
+                    </div>
                 </div>
             </div>
         </div>
