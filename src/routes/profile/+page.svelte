@@ -3,6 +3,14 @@
     import "../../app.css"
     import user from "$lib/public/images/profile.png";
     import Footer from "$lib/components/Footer.svelte";
+    import security from "$lib/public/images/private.png";
+    import peoplegreen from "$lib/public/images/peoplegreen.png";
+    import star from "$lib/public/images/star.png";
+    import search from "$lib/public/images/search.png";
+    import bag from "$lib/public/images/bag.png";
+  import About from "$lib/components/About.svelte";
+  import Analisis from "$lib/components/Analisis.svelte"
+  import Sideprofile from "$lib/components/Sideprofile.svelte";
 </script>
 
 
@@ -10,43 +18,27 @@
 
 <section>
     <div class="container py-6">
-        <div class="flex flex-col lg:flex-row">
-            <div class="flex flex-col items-center border border-gray-200 rounded-lg py-6 lg:w-80 xl:w-96 md:justify-center border-b-">
-                <div>
-                    <img src={user} alt="" class="w-24 h-24 rounded-full md:w-32 md:h-32">
-                </div>
-                <div class="text-center text-color-blue-highlight font-secondary text-lg py-3">
-                    <h3 class="text-lg font-bold md:text-xl">Jafett Rutherford</h3>
-                    <p class="text-black text-sm md:text-base">UI/UX Designer</p>
-                </div>
-                <div class="text-center font-secondary py-3 px-3">
-                    <p class="text-gray-400 text-xs">I'm a UI/UX desginer with 20 years of experience, I love work and videogames.</p>
-                    <div class="w-auto flex space-x-3 py-3 justify-center">
-                        <p class="bg-gray-100 w-auto px-2 py-1 rounded text-xs">UX Research</p>
-                        <p class="bg-gray-100 w-auto px-2 py-1 rounded text-xs">UI Design</p>
-                        <p class="bg-gray-100 w-auto px-2 py-1 rounded text-xs">Web Design</p>
+        <div class="flex flex-col lg:flex-row lg:space-x-10 space-y-20 lg:space-y-0">
+            <Sideprofile></Sideprofile>
+            <main class="w-full space-y-5">
+                <Analisis></Analisis>
+                <About></About>
+                <div class="border border-gray-200 rounded-lg py-6 lg:46 w-full">
+                    <div class="px-5">
+                        <div class="flex flex-row space-x-5">
+                            <h2 class="text-lg font-semibold">About</h2>
+                            <div class="flex flex-row items-center justify-start bg-color-secondary rounded-2xl px-2">
+                                <img src={bag} alt="" class="w-3 h-3 lg:w-5 lg:h-5">
+                                <p class="text-color-secondary-highlight">open to work</p>
+                            </div>
+                        </div>
+                        <div class="py-6 text-gray-500">
+                            <p>Soy un desarrollador BackEnd con 5 años de experiencia. Mi stack principal es nestjs con typescript, microservicios con rabbitMQ o Nats.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="border-t border-gray-200 flex flex-col">
-                    <div class="flex items-start flex-col py-3 text-xs font-bold">
-                        <p class="text-start text-gray-600">LinkedIn</p>
-                        <input type="text" name="" id="" class="bg-gray-100 w-64 py-1 rounded">
-                    </div>
-                    <div class="flex items-start flex-col py-3 text-xs font-bold">
-                        <p class="text-start text-gray-600">GitHub</p>
-                        <input type="text" name="" id="" class="bg-gray-100 w-64 py-1 rounded">
-                    </div>
-                    <div class="flex items-start flex-col py-3 text-xs font-bold">
-                        <p class="text-start text-gray-600">Instagram</p>
-                        <input type="text" name="" id="" class="bg-gray-100 w-64 py-1 rounded">
-                    </div>
-                    <div class="py-3 text-center text-white font-secondary">
-                        <a href="" class="bg-color-blue-highlight px-16 py-3 rounded">Editar perfil</a>
-                    </div>
-    
-                </div>
-            </div>
+            </main>
         </div>
     </div>
 </section>
