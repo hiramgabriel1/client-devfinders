@@ -2,7 +2,7 @@
     import "../../app.css"
     import user from "$lib/public/images/profile.png"
 </script>
-<div class="flex flex-col items-center border border-gray-200 rounded-lg py-6 lg:w-80 xl:w-96 md:justify-center relative">
+<div class="flex flex-col items-center border border-gray-200 rounded-lg py-6 lg:w-80 xl:w-96 md:justify-center relative h-[100%]">
     <div>
         <img src={user} alt="" class="w-24 h-24 rounded-full md:w-32 md:h-32">
     </div>

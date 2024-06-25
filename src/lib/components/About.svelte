@@ -12,7 +12,7 @@
                 <p class="text-color-secondary-highlight">open to work</p>
             </div>
         </div>
-        <div class="py-6 text-gray-500">
+        <div class="py-6 text-gray-500 text-sm lg:text-base">
             <p>Soy un desarrollador BackEnd con 5 años de experiencia. Mi stack principal es nestjs con typescript, microservicios con rabbitMQ o Nats.</p>
         </div>
     </div>
