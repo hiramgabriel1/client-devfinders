@@ -1,3 +1,1 @@
-export interface UserData {
-    
-}
+export interface UserData {}
