@@ -1,7 +1,7 @@
 <script lang="ts">
   import "../../../app.css";
-  import { CREDENTIALS_API } from "../../../utils/config"
-  import toast, { Toaster } from "svelte-french-toast"
+  import { CREDENTIALS_API } from "../../../utils/config";
+  import toast, { Toaster } from "svelte-french-toast";
 
   type loginUserType = {
     email: string;
@@ -14,13 +14,13 @@
   };
 
   const sendData = async () => {
-    const API = (await fetch(CREDENTIALS_API.development)).json()
+    const API = (await fetch(`${CREDENTIALS_API.development}/`)).json();
 
     console.log(API);
-    
   };
 </script>
-<Toaster/>
+
+<Toaster />
 <div
   class="bg-no-repeat bg-cover bg-center relative"
   style="background-image: url(https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1951&amp;q=80);"
@@ -59,6 +59,7 @@
             />
           </div>
           <div class="space-y-2">
+            <!-- svelte-ignore a11y-label-has-associated-control -->
             <label class="mb-5 text-sm font-medium text-gray-700 tracking-wide">
               Password
             </label>
@@ -102,13 +103,9 @@
         <div class="pt-5 text-center text-gray-400 text-xs">
           <span>
             Copyright © 2024
-            <a
-              href="https://codepen.io/uidesignhub"
-              rel=""
-              target="_blank"
-              title="Ajimon"
-              class="text-green hover:text-green-500">Findev</a
-            ></span
+            <p title="Findev" class="text-green hover:text-green-500">
+              Findev
+            </p></span
           >
         </div>
       </div>
