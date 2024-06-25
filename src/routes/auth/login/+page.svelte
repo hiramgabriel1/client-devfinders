@@ -14,9 +14,23 @@
   };
 
   const sendData = async () => {
-    const API = (await fetch(`${CREDENTIALS_API.development}/`)).json();
+    const response = await fetch(
+      `${CREDENTIALS_API.development}/user/auth-login`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
 
-    console.log(API);
+    if (!response.ok)
+      toast.error("Error. Por favor intenta de nuevo mas tarde!");
+
+    let data = await response.json()
+
+    console.log(data);
   };
 </script>
 
