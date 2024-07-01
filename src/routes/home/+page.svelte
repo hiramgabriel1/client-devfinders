@@ -171,7 +171,7 @@
               <div>
                 <img src={pin} alt="pin" class="w-5 h-5" />
               </div>
-              Personas que sigues
+              Personas que comparten tus intereses
             </h1>
           </div>
 
