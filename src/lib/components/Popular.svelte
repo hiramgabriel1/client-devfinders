@@ -7,9 +7,15 @@
   export let error;
   export let popularPosts;
 
+  let usernameAuthor: string;
+
   console.log(error);
 
   console.log(popularPosts);
+
+  popularPosts.map(
+    (data: PopularPostInterface) => (usernameAuthor = data.creatorPost.username)
+  );
 </script>
 
 {#if popularPosts && popularPosts.length > 0}
@@ -52,7 +58,7 @@
                 <span
                   class="font-secondary text-xs font-semibold text-slate-500"
                 >
-                  {post.categoryPost}
+                  {usernameAuthor}
                 </span>
               </div>
             </div>
