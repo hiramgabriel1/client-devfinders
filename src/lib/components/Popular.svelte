@@ -1,6 +1,7 @@
 <script lang="ts">
   import save_b from "$lib/public/images/save_b.png";
   import profile from "$lib/public/images/profile.png";
+  import increase from "$lib/public/images/increase.png"
   import { type PopularPostInterface } from "../../types/posts.interface";
   import "../../app.css";
 
@@ -18,6 +19,14 @@
   );
 </script>
 
+<div class="font-secondary py-3">
+  <h1 class="flex gap-1 font-semibold text-slate-600">
+    <div>
+      <img src={increase} alt="increase" class="w-5 h-5" />
+    </div>
+    Popular
+  </h1>
+</div>
 {#if popularPosts && popularPosts.length > 0}
   {#each popularPosts as post}
     <div class="py-2 font-secondary">

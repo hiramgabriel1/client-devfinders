@@ -6,20 +6,14 @@
   import Publicity from "$lib/components/Publicity.svelte";
   import Footer from "$lib/components/Footer.svelte";
   import settings from "$lib/public/images/settings.png";
-  import save_b from "$lib/public/images/save_b.png";
-  import people from "$lib/public/images/people.png";
   import write from "$lib/public/images/write.png";
-  import increase from "$lib/public/images/increase.png";
   import pin from "$lib/public/images/pin.png";
   import next from "$lib/public/images/next.png";
   import close from "$lib/public/images/close.png";
-  import explore from "$lib/public/images/explore.png";
-  import shine from "$lib/public/images/shine.png";
   import menu from "$lib/public/images/hamburguer.png";
-  import people_2 from "$lib/public/images/people_2.png";
-  import profile from "$lib/public/images/profile.png";
   import CurrentPopularPost from "$lib/components/CurrentPopularPost.svelte";
-  import { type PopularPostInterface } from "../../types/posts.interface";
+  import ExploreThemes from "$lib/components/ExploreThemes.svelte";
+  // import { type PopularPostInterface } from "../../types/posts.interface";
 
   export let data: any;
   export let error: any;
@@ -37,7 +31,7 @@
   ) => {};
 </script>
 
-<Navpro></Navpro>
+<Navpro/>
 <section class="border-t">
   <div class="container mx-auto flex flex-row lg:flex-row lg:space-x-6">
     <main class="w-full md:border-r md:px-3 lg:border-r lg:pb-6">
@@ -77,8 +71,7 @@
       </div>
 
       <!-- todo:  Popular POST #1 -->
-        <CurrentPopularPost {error} {popularPosts} />
-      <!-- todo: popular #1 post close section -->
+      <CurrentPopularPost {error} {popularPosts} />
 
       <!-- todo: normal posts -->
       <Posts {error} {data} />
@@ -104,15 +97,6 @@
           </div>
         </div>
 
-        <div class="font-secondary py-3">
-          <h1 class="flex gap-1 font-semibold text-slate-600">
-            <div>
-              <img src={increase} alt="increase" class="w-5 h-5" />
-            </div>
-            Popular
-          </h1>
-        </div>
-
         <!-- todo: popular posts -->
         <Popular {error} {popularPosts} />
       </div>
@@ -129,7 +113,7 @@
 
           <!-- todo: followed persons -->
           <Followed></Followed>
-          <Followed></Followed> 
+          <Followed></Followed>
           <Followed></Followed>
 
           <div
@@ -168,69 +152,21 @@
                 >Construye tu primer artículo
                 <div class="px-1 py-1">
                   <img src={write} alt="write" class="w-4 h-4" />
-                </div></button
-              >
+                </div></button>
             </div>
           </div>
         </div>
       </div>
-      <div class="border-b">
-        <div class="font-secondary pt-4 pb-7">
-          <h1 class="flex gap-1 font-semibold text-slate-600">
-            <div class="pt-1">
-              <img src={explore} alt="explore" class="w-4 h-4" />
-            </div>
-            Explorar temas
-          </h1>
-        </div>
-        <div class="font-secondary text-sm flex flex-wrap gap-3">
-          <button class="rounded-full bg-slate-200 py-1 px-2 hover:bg-slate-300"
-            >Computer Science</button
-          >
-          <button class="rounded-full bg-slate-200 py-1 px-2 hover:bg-slate-300"
-            >Art</button
-          >
-          <button class="rounded-full bg-slate-200 py-1 px-2 hover:bg-slate-300"
-            >Blockbuster</button
-          >
-          <button class="rounded-full bg-slate-200 py-1 px-2 hover:bg-slate-300"
-            >Technology</button
-          >
-          <button class="rounded-full bg-slate-200 py-1 px-2 hover:bg-slate-300"
-            >Family Therary</button
-          >
-          <button class="rounded-full bg-slate-200 py-1 px-2 hover:bg-slate-300"
-            >Career</button
-          >
-          <button class="rounded-full bg-slate-200 py-1 px-2 hover:bg-slate-300"
-            >Writing Tips</button
-          >
-        </div>
-        <div
-          class="font-secondary text-color-blue-highlight font-semibold py-7"
-        >
-          <button class="flex flex-row-reverse px-1 text-sm">
-            <div class="px-2 pt-1">
-              <img src={next} alt="next" class="w-5 h-5" />
-            </div>
-            See all</button
-          >
-        </div>
-      </div>
-      <div class="">
-        <div class="font-secondary pt-4 pb-7">
-          <h1 class="flex gap-1 font-semibold text-slate-600">
-            <div class="pt-1">
-              <img src={shine} alt="shine" class="w-4 h-4" />
-            </div>
-            Publicidad
-          </h1>
-        </div>
-        <Publicity></Publicity>
-        <Publicity></Publicity>
-      </div>
+      
+      <!-- todo: explore themes -->
+      <ExploreThemes />
+
+      <!-- todo: publicity -->
+      <Publicity />
     </aside>
   </div>
 </section>
 
-<div class={act ? "hidden" : "block"}><Footer></Footer></div>
+<div class={act ? "hidden" : "block"}>
+  <Footer />
+</div>

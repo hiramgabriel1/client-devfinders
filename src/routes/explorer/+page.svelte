@@ -6,15 +6,27 @@
   import MostWanted from "$lib/components/MostWanted.svelte";
   import Categories from "$lib/components/Categories.svelte";
   import Footer from "$lib/components/Footer.svelte";
+
+  // importarla (curioso)
+  export let data
+
+  let posts = data.data.posts
+  console.log(posts);
+
+  // props --> propiedades que se comparten
 </script>
 
-<Navpro></Navpro>
+<Navpro/>
+
+<!-- props -->
 
 <main class="flex flex-col items-center gap-24">
   <Explorer/>
   <section class="w-[75rem] relative flex justify-center gap-4 pb-10">
     <h2 class="text-3xl font-bold absolute -top-14 left-0">Recientes</h2>
-    <Recent />
+    
+    <Recent/>
+
   </section>
   <section class="w-[75rem] relative flex justify-center gap-4 pb-10">
     <h2 class="text-3xl font-bold absolute -top-14 left-0">Personas con las que podrías conectar</h2>

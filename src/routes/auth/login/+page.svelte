@@ -1,40 +1,33 @@
 <script lang="ts">
-  import "../../../app.css";
-  import { CREDENTIALS_API } from "../../../utils/config";
-  import toast, { Toaster } from "svelte-french-toast";
+  import { applyAction, enhance } from '$app/forms';
+  import { page } from '$app/stores';
+  import toast, { Toaster } from 'svelte-french-toast';
+ 
+  let form: any;
 
-  type loginUserType = {
-    email: string;
-    password: string;
-  };
-
-  let formData: loginUserType = {
-    email: "",
-    password: "",
-  };
-
-  const sendData = async () => {
-    const response = await fetch(
-      `${CREDENTIALS_API.development}/user/auth-login`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+  function handleSubmit(event: any) {
+    event.preventDefault();
+    const formData = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: formData
+    }).then(async response => {
+      const result = await response.json();
+      if (result.success) {
+        toast.success('Inicio de sesión exitoso');
+      } else {
+        toast.error('Error en el inicio de sesión');
       }
-    );
+    }).catch(error => {
+      console.error('Error:', error);
+      toast.error('Error en el servidor');
+    });
+  }
 
-    if (!response.ok)
-      toast.error("Error. Por favor intenta de nuevo mas tarde!");
-
-    let data = await response.json()
-
-    console.log(data);
-  };
 </script>
 
 <Toaster />
+
 <div
   class="bg-no-repeat bg-cover bg-center relative"
   style="background-image: url(https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1951&amp;q=80);"
@@ -59,7 +52,7 @@
           <h3 class="font-semibold text-2xl text-gray-800">Sign In</h3>
           <p class="text-gray-500">Please sign in to your account.</p>
         </div>
-        <form class="space-y-5" on:submit|preventDefault={sendData}>
+        <form class="space-y-5" method="POST" action="?/login" bind:this={form} on:submit={handleSubmit}>
           <div class="space-y-2">
             <!-- svelte-ignore a11y-label-has-associated-control -->
             <label class="text-sm font-medium text-gray-700 tracking-wide"
@@ -67,8 +60,8 @@
             >
             <input
               class=" w-full text-base px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
-              type="text"
-              bind:value={formData.email}
+              type="email"
+              name="email"
               placeholder="mail@gmail.com"
             />
           </div>
@@ -80,7 +73,7 @@
             <input
               class="w-full content-center text-base px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
               type="password"
-              bind:value={formData.password}
+              name="password"
               placeholder="Enter your password"
             />
           </div>
