@@ -6,8 +6,8 @@
   import Analisis from "$lib/components/Analisis.svelte";
   import Sideprofile from "$lib/components/Sideprofile.svelte";
   import Workexperience from "$lib/components/Workexperience.svelte";
-  import Projectexp from "$lib/components/Projectexp.svelte";
   import Skills from "$lib/components/Skills.svelte";
+  import ProjectExp from "$lib/components/ProjectExp.svelte";
 
   export let data
   
@@ -27,7 +27,7 @@
         <Analisis/>
         <About {userData}/>
         <Workexperience {userData}/>
-        <Projectexp {userData}/>
+        <ProjectExp {userData}/>
         <Skills {userData}/>
       </main>
     </div>
