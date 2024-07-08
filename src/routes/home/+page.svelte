@@ -13,44 +13,49 @@
   import menu from "$lib/public/images/hamburguer.png";
   import CurrentPopularPost from "$lib/components/CurrentPopularPost.svelte";
   import ExploreThemes from "$lib/components/ExploreThemes.svelte";
-  // import { type PopularPostInterface } from "../../types/posts.interface";
 
   export let data: any;
   export let error: any;
 
   let act: boolean = false;
   let popularPosts = data.popularData;
+  let user = data.user
 
   console.log(data);
   console.log(popularPosts);
-
+  console.log(user);
+  
   const paginationPosts = async (
     currentPage: number,
     nextPage: number,
     pageLimit: number
   ) => {};
+  
 </script>
 
-<Navpro/>
+<Navpro />
 <section class="border-t">
   <div class="container mx-auto flex flex-row lg:flex-row lg:space-x-6">
     <main class="w-full md:border-r md:px-3 lg:border-r lg:pb-6">
       <div class="flex flex-wrap py-6 lg:justify-between sm:justify-between">
         <div class="font-secondary flex flex-wrap text-sm space-x-3">
           <div class="">
-            <button class="hover:font-bold hover:border-b">Para ti</button>
+            <a class="hover:font-bold hover:border-b" href="/for-you">
+              Para ti
+            </a>
           </div>
           <div>
-            <button class="hover:font-bold hover:border-b">Suscritos</button>
+            <a class="hover:font-bold hover:border-b" href="/"> Suscritos </a>
           </div>
           <div>
-            <button class="hover:font-bold hover:border-b">Soluciones</button>
+            <a class="hover:font-bold hover:border-b" href="/events">
+              Eventos
+            </a> 
           </div>
           <div>
-            <button class="hover:font-bold hover:border-b">Eventos</button>
-          </div>
-          <div>
-            <button class="hover:font-bold hover:border-b">Novedades</button>
+            <a class="hover:font-bold hover:border-b" href="/news">
+              Novedades
+            </a>
           </div>
         </div>
         <div class="flex py-2 lg:py-0 lg:px-8 sm:py-0 sm:px-6">
@@ -62,7 +67,6 @@
             </div>
             <div class="lg:hidden md:hidden py-3 sm:pl-2">
               <button on:click={() => (act = true)}>
-                <!-- menu -->
                 <img src={menu} alt="menu" class="w-5 h-5" />
               </button>
             </div>
@@ -112,9 +116,7 @@
           </div>
 
           <!-- todo: followed persons -->
-          <Followed></Followed>
-          <Followed></Followed>
-          <Followed></Followed>
+          <Followed/>
 
           <div
             class="font-secondary text-color-blue-highlight font-semibold py-7"
@@ -123,8 +125,8 @@
               <div class="px-2 pt-1">
                 <img src={next} alt="next" class="w-5 h-5" />
               </div>
-              See more suggestions</button
-            >
+              See more suggestions
+            </button>
           </div>
         </div>
         <div class="bg-color-secondary py-4 px-2 font-secondary md:">
@@ -152,12 +154,13 @@
                 >Construye tu primer artículo
                 <div class="px-1 py-1">
                   <img src={write} alt="write" class="w-4 h-4" />
-                </div></button>
+                </div></button
+              >
             </div>
           </div>
         </div>
       </div>
-      
+
       <!-- todo: explore themes -->
       <ExploreThemes />
 
