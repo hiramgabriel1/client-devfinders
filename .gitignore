@@ -1,5 +1,8 @@
 node_modules
 
+# private 
+/private.token.ts
+
 # Output
 .output
 .vercel
