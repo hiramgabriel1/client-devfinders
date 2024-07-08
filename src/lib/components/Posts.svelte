@@ -9,17 +9,18 @@
   export let error;
   export let data;
 
-
+  console.log(data.dataPosts);
+  
 </script>
 
 {#if error}
-  <div>
+  <div> 
     <p>Error al cargar los posts: {error.message}</p>
   </div>
-{:else if data.data && data.data.length > 0}
+{:else if data.dataPosts && data.dataPosts.length > 0}
   <div>
     <ul>
-      {#each data.data as post}
+      {#each data.dataPosts as post}
         <li>
           <div class="py-1 lg:px-4">
             <div class="rounded-sm py-2 px-2 flex flex-col lg:py-4">

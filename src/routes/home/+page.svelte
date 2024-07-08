@@ -30,7 +30,7 @@
     nextPage: number,
     pageLimit: number
   ) => {};
-  
+
 </script>
 
 <Navpro />
@@ -45,7 +45,9 @@
             </a>
           </div>
           <div>
-            <a class="hover:font-bold hover:border-b" href="/"> Suscritos </a>
+            <a class="hover:font-bold hover:border-b" href="/"> 
+              Suscritos 
+            </a>
           </div>
           <div>
             <a class="hover:font-bold hover:border-b" href="/events">
@@ -87,13 +89,14 @@
     >
       <div class="border-b">
         <div class="py-4">
-          <button
+          <a
             class="bg-color-blue-highlight rounded-full font-secondary font-semibold text-white px-3 flex gap-2 text-sm pt-1"
-            >Escribir artículo
+            href="/posts/create/">
+              Escribir artículo
             <div class="py-1">
               <img src={write} alt="write" class="w-4 h-4" />
-            </div></button
-          >
+            </div>
+          </a>
           <div class="lg:hidden md:hidden py-4">
             <button on:click={() => (act = true)}>
               <img src={menu} alt="menu" class="w-5 h-5" />

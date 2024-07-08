@@ -1,6 +1,5 @@
 import { jwtDecode } from "jwt-decode";
 import type { PageServerLoad } from "./$types";
-import Cookies from "js-cookie";
 import { CREDENTIALS_API } from "../../utils/config";
 import { redirect } from "@sveltejs/kit";
 
@@ -28,7 +27,7 @@ export const load: PageServerLoad = async ({ fetch, cookies }) => {
         const userData = await validateSessionUser.json()
         console.log(userData);
 
-        if (!validateSessionUser.ok) throw redirect(500, "/auth/login");
+        if (!validateSessionUser.ok) throw redirect(303, "/auth/login");
 
         const postsResponse = await fetch(
             "http://localhost:5000/posts/show-posts",
