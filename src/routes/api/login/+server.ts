@@ -1,6 +1,8 @@
-import { json } from '@sveltejs/kit';
+import { error, json, redirect } from '@sveltejs/kit';
 import { CREDENTIALS_API } from '../../../utils/config';
+import { jwtDecode } from "jwt-decode"
 import { invalidate } from '$app/navigation';
+import cookie from "js-cookie"
 
 export const POST = async ({ request }: any) => {
     const { email, password } = await request.json();
@@ -9,6 +11,7 @@ export const POST = async ({ request }: any) => {
         email,
         password
     }
+
     console.log(email, password);
     const api = await fetch(`${CREDENTIALS_API.development}users/auth-login`, {
         method: 'POST',
@@ -20,14 +23,13 @@ export const POST = async ({ request }: any) => {
 
     const response = await api.json()
 
-    if(!response.ok) console.log('error');
-    
-    console.log(response);
-    
-    return json({
-        data: {
-            email: email,
-            password: password
-        }
-    });
+    if(!api.ok) {
+        console.error('error al iniciar sesion')
+        return json({ error: 'Error al iniciar sesion' }, { status: 401 })
+    }
+
+    const userCurrent = response.token
+    console.log("userCurrent", userCurrent);
+
+    return json({token: userCurrent })
 };

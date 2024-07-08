@@ -2,8 +2,9 @@
   import { applyAction, enhance } from "$app/forms";
   import { page } from "$app/stores";
   import toast, { Toaster } from "svelte-french-toast";
+  import Cookies from "js-cookie";
+  import { goto } from "$app/navigation";
 
-  let form: any;
   let formData = {
     email: "",
     password: "",
@@ -18,16 +19,19 @@
       body: JSON.stringify(formData),
     });
 
+    const data = await api.json();
+
     if (!api.ok) {
+      toast.error('Error al iniciar sesion. Verifica tu cuenta por favor')
       return {
         success: false,
         message: "Error en el inicio de sesión",
       };
     }
 
-    const responseApi = await api.json();
-
-    console.log(responseApi);
+    Cookies.set('token', data.token, { path: '/' })
+    
+    await goto('/home')
   };
 </script>
 
