@@ -13,6 +13,8 @@
   import menu from "$lib/public/images/hamburguer.png";
   import CurrentPopularPost from "$lib/components/CurrentPopularPost.svelte";
   import ExploreThemes from "$lib/components/ExploreThemes.svelte";
+  import { goto } from "$app/navigation";
+  import { onMount } from "svelte";
 
   export let data: any;
   export let error: any;
@@ -31,9 +33,12 @@
     pageLimit: number
   ) => {};
 
+  let handleClick = () => goto('/profile')
+  
 </script>
 
-<Navpro />
+<Navpro on:click={handleClick}/>
+
 <section class="border-t">
   <div class="container mx-auto flex flex-row lg:flex-row lg:space-x-6">
     <main class="w-full md:border-r md:px-3 lg:border-r lg:pb-6">

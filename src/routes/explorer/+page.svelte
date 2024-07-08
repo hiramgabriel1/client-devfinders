@@ -7,8 +7,9 @@
   import Categories from "$lib/components/Categories.svelte";
   import Footer from "$lib/components/Footer.svelte";
 
+  let onClick = true
 </script>
-
+ 
 <Navpro />
 
 <main class="flex flex-col items-center gap-24">

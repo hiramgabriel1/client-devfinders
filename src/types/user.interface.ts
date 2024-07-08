@@ -1,4 +1,4 @@
-export interface User {
+export interface UserInterface {
     id?: number;
     username: string;
     avatar_url: string;
