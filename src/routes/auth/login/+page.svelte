@@ -1,29 +1,34 @@
 <script lang="ts">
-  import { applyAction, enhance } from '$app/forms';
-  import { page } from '$app/stores';
-  import toast, { Toaster } from 'svelte-french-toast';
- 
+  import { applyAction, enhance } from "$app/forms";
+  import { page } from "$app/stores";
+  import toast, { Toaster } from "svelte-french-toast";
+
   let form: any;
+  let formData = {
+    email: "",
+    password: "",
+  };
 
-  function handleSubmit(event: any) {
-    event.preventDefault();
-    const formData = new FormData(form);
-    fetch(form.action, {
-      method: 'POST',
-      body: formData
-    }).then(async response => {
-      const result = await response.json();
-      if (result.success) {
-        toast.success('Inicio de sesión exitoso');
-      } else {
-        toast.error('Error en el inicio de sesión');
-      }
-    }).catch(error => {
-      console.error('Error:', error);
-      toast.error('Error en el servidor');
+  const handleSubmit = async () => {
+    const api = await fetch("/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
     });
-  }
 
+    if (!api.ok) {
+      return {
+        success: false,
+        message: "Error en el inicio de sesión",
+      };
+    }
+
+    const responseApi = await api.json();
+
+    console.log(responseApi);
+  };
 </script>
 
 <Toaster />
@@ -52,7 +57,10 @@
           <h3 class="font-semibold text-2xl text-gray-800">Sign In</h3>
           <p class="text-gray-500">Please sign in to your account.</p>
         </div>
-        <form class="space-y-5" method="POST" action="?/login" bind:this={form} on:submit={handleSubmit}>
+        <form
+          class="space-y-5"
+          on:submit|preventDefault={handleSubmit}
+        >
           <div class="space-y-2">
             <!-- svelte-ignore a11y-label-has-associated-control -->
             <label class="text-sm font-medium text-gray-700 tracking-wide"
@@ -62,6 +70,7 @@
               class=" w-full text-base px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
               type="email"
               name="email"
+              bind:value={formData.email}
               placeholder="mail@gmail.com"
             />
           </div>
@@ -74,6 +83,7 @@
               class="w-full content-center text-base px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
               type="password"
               name="password"
+              bind:value={formData.password}
               placeholder="Enter your password"
             />
           </div>

@@ -7,33 +7,26 @@
   import Categories from "$lib/components/Categories.svelte";
   import Footer from "$lib/components/Footer.svelte";
 
-  // importarla (curioso)
-  export let data
-
-  let posts = data.data.posts
-  console.log(posts);
-
-  // props --> propiedades que se comparten
 </script>
 
-<Navpro/>
-
-<!-- props -->
+<Navpro />
 
 <main class="flex flex-col items-center gap-24">
-  <Explorer/>
+  <Explorer />
   <section class="w-[75rem] relative flex justify-center gap-4 pb-10">
     <h2 class="text-3xl font-bold absolute -top-14 left-0">Recientes</h2>
-    
     <Recent/>
-
   </section>
   <section class="w-[75rem] relative flex justify-center gap-4 pb-10">
-    <h2 class="text-3xl font-bold absolute -top-14 left-0">Personas con las que podrías conectar</h2>
+    <h2 class="text-3xl font-bold absolute -top-14 left-0">
+      Personas con las que podrías conectar
+    </h2>
     <Authors />
   </section>
   <section class="w-[75rem] relative pb-10">
-    <h2 class="text-3xl font-bold absolute -top-14 left-0">Temas mas buscados</h2>
+    <h2 class="text-3xl font-bold absolute -top-14 left-0">
+      Temas mas buscados
+    </h2>
     <MostWanted />
   </section>
   <section class="w-[75rem] relative pb-56">
