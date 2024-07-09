@@ -1,17 +1,17 @@
 import { redirect } from "@sveltejs/kit";
-import type { PageServerLoad } from "../$types";
-import { CREDENTIALS_API } from "../../utils/config";
+import type { PageServerLoad } from "./$types";
+import { CREDENTIALS_API } from "../../../utils/config";
 import { jwtDecode } from "jwt-decode";
 
-export const load: PageServerLoad = async ({ fetch, cookies }) => {
+export const load: PageServerLoad = async ({ fetch, cookies }: any) => {
     try {
         const tokenUser = cookies.get('token')
-        // const userAccess = jwtDecode(tokenUser || '')
         if (cookies === undefined) throw new Error("token is not exists");
 
         const API = await fetch(`${CREDENTIALS_API.development}users/auth/user`, {
             headers: {
-                Authorization: `Bearer ${tokenUser}`
+                Authorization: `Bearer ${tokenUser}`,
+                Cookie: `jwt=${tokenUser};`,
             },
             credentials: "include"
         })

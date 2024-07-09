@@ -68,9 +68,6 @@ export const load: PageServerLoad = async ({ fetch, cookies }) => {
         };
     } catch (error) {
         console.error("Fetch error:", error);
-        return {
-            posts: [],
-            error: error,
-        };
+        return redirect(303, "/auth/login");
     }
 };
