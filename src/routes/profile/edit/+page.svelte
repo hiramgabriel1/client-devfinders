@@ -1,12 +1,13 @@
 <script>
-    import Navpro from "$lib/components/Navpro.svelte";
-    import "../../../app.css"
+    import Navpro from "$lib/components/common/Navpro.svelte";
     import arrowdown_icon from "$lib/public/images/arrow_down.png"
     import user_img from "$lib/public/images/profile.png"
     import save_icon from "$lib/public/images/save_icon.png"
     import close_icon from "$lib/public/images/close_icon.png"
     import trash_icon from "$lib/public/images/trash_icon.png"
     import Footer from "$lib/components/Footer.svelte";
+    import "../../../app.css"
+
 </script>
 
 <Navpro></Navpro>

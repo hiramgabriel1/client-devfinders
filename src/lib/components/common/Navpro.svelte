@@ -1,9 +1,9 @@
 <script>
-  import "../../app.css";
   import logo_2 from "$lib/public/images/logo_2.png";
   import search_2 from "$lib/public/images/search_2.png";
   import notify from "$lib/public/images/notify.png";
   import profile from "$lib/public/images/profile.png";
+  
 </script>
 
 <header>
@@ -41,7 +41,10 @@
           <option value="edit-profile">Editar perfil</option>
           <option value="view-my-candidates"> Ver mis candidatos </option>
           <option value="view-my-posts"> Ver mis publicaciones </option>
-          <option value="view-my-postulations"> Ver mis postulaciones </option>
+          <option value="view-my-postulations">
+            Ver mis postulaciones
+           </option>
+          <option value="view-my-postulations"> Ver mis guardados </option>
         </select>
       </div>
     </div>

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Navpro from "$lib/components/Navpro.svelte";
+  import Navpro from "$lib/components/common/Navpro.svelte";
   import Footer from "$lib/components/Footer.svelte"; 
   import { type JobsInterface } from "../../../types/jobs.interface";
   import "../../../app.css";

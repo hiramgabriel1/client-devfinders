@@ -1,4 +1,5 @@
 export interface PopularPostInterface {
+    date: Date | string | number;
     length: number;
     id?: number;
     titlePost: string;
@@ -10,4 +11,5 @@ export interface PopularPostInterface {
     creatorPost: { username: string };
     creatorPostId: number;
     createdAt: Date | string;
+    Comments: []
 }

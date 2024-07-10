@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Navpro from "$lib/components/Navpro.svelte";
+    import Navpro from "$lib/components/common/Navpro.svelte";
     import Footer from "$lib/components/Footer.svelte";
     import profile from "$lib/public/images/profile.png";
     import arrow_1 from "$lib/public/images/arrow_1.png";

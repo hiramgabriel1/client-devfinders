@@ -1,6 +1,6 @@
 <script>
   import Authors from "$lib/components/Authors.svelte";
-  import Navpro from "$lib/components/Navpro.svelte";
+  import Navpro from "$lib/components/common/Navpro.svelte";
   import Explorer from "$lib/components/Explorer.svelte";
   import Recent from "$lib/components/Recent.svelte";
   import MostWanted from "$lib/components/MostWanted.svelte";

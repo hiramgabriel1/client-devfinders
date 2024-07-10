@@ -1,6 +1,6 @@
 import { redirect } from "@sveltejs/kit";
 import type { PageServerLoad } from "../$types";
-import { CREDENTIALS_API } from "../../utils/config";
+import { CREDENTIALS_API } from "../utils/config";
 
 export const load: PageServerLoad = async ({ cookies, fetch }) => {
     try {

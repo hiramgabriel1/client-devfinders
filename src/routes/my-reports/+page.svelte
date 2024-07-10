@@ -5,7 +5,7 @@
     import Footer from "$lib/components/Footer.svelte";
     import Reports from "$lib/components/Reports.svelte";
     import arrow_2 from "$lib/public/images/arrow_2.png"
-    import Navpro from "$lib/components/Navpro.svelte";
+    import Navpro from "$lib/components/common/Navpro.svelte";
 </script>
 <Navpro></Navpro>
 

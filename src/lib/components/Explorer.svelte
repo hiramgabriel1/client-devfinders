@@ -1,9 +1,6 @@
 <script lang="ts">
-  import { CREDENTIALS_API } from "../../utils/config";
+  import { CREDENTIALS_API } from "../../routes/utils/configfig";
 
-  // export let dataSearched
-
-  // console.log(dataSearched);
   let formData = {
     search: "",
   };

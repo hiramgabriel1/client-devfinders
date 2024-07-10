@@ -23,7 +23,7 @@
           we are sorry, but the page you requested was not found
         </p>
         <a
-          href="/jobs"
+          href="/home"
           class="bg-green-400 px-5 py-3 text-sm shadow-sm font-medium tracking-wider text-gray-50 rounded-full hover:shadow-lg"
         >
           Got to Home

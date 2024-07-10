@@ -1,5 +1,5 @@
 <script>
-  import Navpro from "$lib/components/Navpro.svelte";
+  import Navpro from "$lib/components/common/Navpro.svelte";
   import "../../app.css";
   import Footer from "$lib/components/Footer.svelte";
   import About from "$lib/components/About.svelte";

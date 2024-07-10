@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Navpro from "$lib/components/Navpro.svelte";
+  import Navpro from "$lib/components/common/Navpro.svelte";
   import Posts from "$lib/components/Posts.svelte";
   import Popular from "$lib/components/Popular.svelte";
   import Followed from "$lib/components/Followed.svelte";
@@ -14,7 +14,6 @@
   import CurrentPopularPost from "$lib/components/CurrentPopularPost.svelte";
   import ExploreThemes from "$lib/components/ExploreThemes.svelte";
   import { goto } from "$app/navigation";
-  import { onMount } from "svelte";
 
   export let data: any;
   export let error: any;

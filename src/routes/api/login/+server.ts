@@ -1,8 +1,5 @@
-import { error, json, redirect } from '@sveltejs/kit';
-import { CREDENTIALS_API } from '../../../utils/config';
-import { jwtDecode } from "jwt-decode"
-import { invalidate } from '$app/navigation';
-import cookie from "js-cookie"
+import { json } from '@sveltejs/kit';
+import { CREDENTIALS_API } from '../../utils/config';
 
 export const POST = async ({ request }: any) => {
     const { email, password } = await request.json();

@@ -1,5 +1,5 @@
 import type { PageServerLoad } from "./$types";
-import { CREDENTIALS_API } from "../../../utils/config";
+import { CREDENTIALS_API } from "../../utils/config";
 
 export const load: PageServerLoad = async ({ fetch }) => {
   try {

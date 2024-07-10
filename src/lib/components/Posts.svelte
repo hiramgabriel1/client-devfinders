@@ -1,16 +1,17 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
   import save_b from "$lib/public/images/save_b.png";
-  import people_2 from "$lib/public/images/people_2.png";
-  import profile from "$lib/public/images/profile.png";
   import "../../app.css";
-  import { onMount } from "svelte";
-  import { CREDENTIALS_API } from "../../utils/config";
 
   export let error;
   export let data;
 
   console.log(data.dataPosts);
   
+  const showPostById = async (id: any ) => {
+    await goto(`/home/posts/post/${id}`)
+    console.log(id);
+  }
 </script>
 
 {#if error}
@@ -21,7 +22,9 @@
   <div>
     <ul>
       {#each data.dataPosts as post}
-        <li>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+        <li on:click={()=> showPostById(post.id)}>
           <div class="py-1 lg:px-4">
             <div class="rounded-sm py-2 px-2 flex flex-col lg:py-4">
               <div class="flex space-x-2">

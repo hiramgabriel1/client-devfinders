@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Navpro from "$lib/components/Navpro.svelte";
+  import Navpro from "$lib/components/common/Navpro.svelte";
   import Footer from "$lib/components/Footer.svelte";
-  import previous from "$lib/public/images/previous.png";
+  import PreviousButton from "$lib/components/common/PreviousButton.svelte";
   import view from "$lib/public/images/view.png";
   import comment from "$lib/public/images/comment.png";
   import share from "$lib/public/images/share.png";
@@ -13,59 +13,140 @@
   import reco_2 from "$lib/public/images/reco_2.png";
   import reco_3 from "$lib/public/images/reco_3.png";
   import next_reco from "$lib/public/images/next_reco.png";
+  import { FormatDates } from "../../../../utils/formatDates";
 
-  // export const load = async ({ params }: any) => {
-  //   const { postId } = params
-  // };
+  import "../../../../../app.css";
+  import type { PopularPostInterface } from "../../../../../types/posts.interface";
+  import toast, { Toaster } from "svelte-french-toast";
+  import { jwtDecode } from "jwt-decode";
+  import Cookies from "js-cookie";
+
+  export let data;
+
+  let token: string | undefined = Cookies.get("token");
+  let post: PopularPostInterface = data.data.post;
+  let postCreatedAt = FormatDates(post.date);
+
+  console.log(postCreatedAt);
+
+  let user: any;
+  let userId: number;
+
+  try {
+    if (token && token.split(".").length === 3) {
+      user = jwtDecode(token);
+      userId = user.id;
+
+      console.log(userId);
+      
+    } else {
+      toast.error('token invalido')
+      throw new Error("Token inválido");
+    }
+  } catch (error) {
+    console.error("Error decodificando el token:", error);
+  }
+
+  const saveBookmark = async () => {
+    try {
+      if (!token || token.split(".").length !== 3) {
+        throw new Error("Token inválido");
+      }
+
+      const data = {
+        postId: post.id,
+        userId: userId,
+        token: token,
+      };
+
+      const localApi = await fetch("/api/bookmarks/save", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!localApi.ok) {
+        throw new Error("Error al consumir la API");
+      }
+
+      const responseData = await localApi.json();
+      console.log(responseData);
+
+      toast.success("Bookmark guardado!");
+    } catch (error) {
+      console.error(error);
+      toast.error("Error al guardar el bookmark!");
+    }
+  };
+
+  const likeMethod = async () => {
+    try {
+    } catch (error) {
+      console.error(error);
+      toast.error("Error al dar like");
+    }
+  };
 </script>
 
-<Navpro></Navpro>
+<Toaster />
+<Navpro />
+
 <section>
   <div class="lg:absolute lg:top-55 lg:pt-7 lg:px-7">
-    <div class="flex justify-start px-4">
-      <button class="border border-gray-300 rounded-full px-2 py-2"
-        ><img src={previous} alt="previous" class="w-4 h-4" /></button
-      >
-    </div>
+    <PreviousButton />
   </div>
   <div class="container flex flex-col lg:px-20">
     <div class="flex flex-col">
       <div class="flex justify-start pt-6 pb-3 lg:px-20">
         <div class="flex justify-start font-secondary text-xs space-x-3 py-3">
           <div>
-            <span class="border border-black rounded-xl py-1 px-2">Popular</span
-            >
+            <span class="border border-black rounded-xl py-1 px-2">
+              {post.likesCount >= 10 ? "Popular" : "New"}
+            </span>
           </div>
           <div>
-            <span class="bg-black text-white rounded-xl py-1 px-2"
-              >Blockchain</span
-            >
+            <span class="bg-black text-white rounded-xl py-1 px-2">
+              {post.categoryPost}
+            </span>
           </div>
-          <div><span class="text-zinc-600">Jun 27,2023</span></div>
+          <div><span class="text-zinc-600">{postCreatedAt}</span></div>
         </div>
       </div>
     </div>
 
     <div class="font-secondary font-bold pb-10 text-lg lg:px-20">
-      <h1>Demystifying Blockchain: Was it intentionally made confusing?</h1>
+      <h1>{post.titlePost}</h1>
     </div>
     <div class=" flex justify-between border-b pb-3 lg:px-20">
       <div class="flex space-x-1">
         <div class="flex space-x-1 items-center">
-          <img src={view} alt="view" class="w-5 h-5" />
-          <span class="font-secondary text-xs text-zinc-700">1.8M</span>
+          <button on:click={likeMethod}>
+            <img src={view} alt="view" class="w-5 h-5" />
+          </button>
+          <span class="font-secondary text-xs text-zinc-700">
+            {post.likesCount}
+          </span>
         </div>
         <div class="flex space-x-1 items-center">
           <img src={comment} alt="comment" class="w-5 h-5" />
-          <span class="font-secondary text-xs text-zinc-700">4K</span>
+          <span class="font-secondary text-xs text-zinc-700">
+            {post.Comments.length}
+          </span>
         </div>
       </div>
       <div class="flex">
-        <button class="px-1"
-          ><img src={share} alt="share" class="w-5 h-5" /></button
-        >
-        <button><img src={save_b} alt="save_b" class="w-5 h-5" /></button>
-        <button><img src={dots} alt="dots" class="w-5 h-5" /></button>
+        <button class="px-1">
+          <img src={share} alt="share" class="w-5 h-5" />
+        </button>
+        <button on:click={saveBookmark}>
+          <img src={save_b} alt="save_b" class="w-5 h-5" />
+        </button>
+        <button>
+          <img src={dots} alt="dots" class="w-5 h-5" />
+        </button>
       </div>
     </div>
     <div class="pt-10 lg:px-20">
@@ -191,4 +272,4 @@
     </div>
   </div>
 </section>
-<Footer></Footer>
+<Footer />

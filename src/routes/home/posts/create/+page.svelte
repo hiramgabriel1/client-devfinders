@@ -1,6 +1,6 @@
 <script lang="ts">
     import "../../../style/style.css";
-    import Navpro from "$lib/components/Navpro.svelte";
+    import Navpro from "$lib/components/common/Navpro.svelte";
     import Footer from "$lib/components/Footer.svelte";
     import previous from "$lib/public/images/previous.png";
     import undo from "$lib/public/images/undo.png";
