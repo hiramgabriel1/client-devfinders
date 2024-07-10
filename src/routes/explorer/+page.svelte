@@ -8,6 +8,14 @@
   import Footer from "$lib/components/Footer.svelte";
 
   let onClick = true
+  export let data
+  
+  const posts = data.data.posts
+  const users = data.users
+  
+  console.log(posts);
+  console.log(users);
+
 </script>
  
 <Navpro />
@@ -16,13 +24,13 @@
   <Explorer />
   <section class="w-[75rem] relative flex justify-center gap-4 pb-10">
     <h2 class="text-3xl font-bold absolute -top-14 left-0">Recientes</h2>
-    <Recent/>
+    <Recent {posts}/>
   </section>
   <section class="w-[75rem] relative flex justify-center gap-4 pb-10">
     <h2 class="text-3xl font-bold absolute -top-14 left-0">
       Personas con las que podrías conectar
     </h2>
-    <Authors />
+    <Authors {users}/>
   </section>
   <section class="w-[75rem] relative pb-10">
     <h2 class="text-3xl font-bold absolute -top-14 left-0">

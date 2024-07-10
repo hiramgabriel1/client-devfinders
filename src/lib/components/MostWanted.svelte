@@ -15,7 +15,7 @@
     "Freelancing",
     "Elder Care",
     "Venture Capital",
-    "Anxiety"
+    "Anxiety",
   ];
 
   let styles = [
@@ -23,14 +23,18 @@
     { color: "text-green-500", bg: "bg-green-100" },
     { color: "text-yellow-500", bg: "bg-yellow-100" },
     { color: "text-red-500", bg: "bg-red-100" },
-    { color: "text-purple-500", bg: "bg-purple-100" }
+    { color: "text-purple-500", bg: "bg-purple-100" },
   ];
 </script>
 
 <article class="flex gap-4 flex-wrap">
   {#each topics as topic, index}
-    <span class="capitalize py-1 px-2 rounded-full text-sm flex gap-1 items-center justify-center {styles[index % styles.length].color} {styles[index % styles.length].bg}">
-      {topic} <img src={arrow} alt={arrow} class="invert opacity-20">
+    <span
+      class="capitalize py-1 px-2 rounded-full text-sm flex gap-1 items-center justify-center {styles[
+        index % styles.length
+      ].color} {styles[index % styles.length].bg}"
+    >
+      {topic} <img src={arrow} alt={arrow} class="invert opacity-20" />
     </span>
   {/each}
 </article>

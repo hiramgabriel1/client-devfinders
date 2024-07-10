@@ -4,28 +4,32 @@ import { CREDENTIALS_API } from "../../utils/config";
 import { jwtDecode } from "jwt-decode";
 
 export const load: PageServerLoad = async ({ fetch, cookies }) => {
-    try {
-        const tokenUser = cookies.get('token')
-        // const userAccess = jwtDecode(tokenUser || '')
-        if (cookies === undefined) throw new Error("token is not exists");
+  try {
+    const tokenUser = cookies.get("token");
 
-        const API = await fetch(`${CREDENTIALS_API.development}users/auth/user`, {
-            headers: {
-                Authorization: `Bearer ${tokenUser}`
-            },
-            credentials: "include"
-        })
+    if (cookies === undefined) throw new Error("token is not exists");
 
-        if(!API.ok) throw redirect(303, '/auth/login/')
+    const API = await fetch(
+      `
+            ${CREDENTIALS_API.development}users/auth/user`,
+      {
+        headers: {
+          Authorization: `Bearer ${tokenUser}`,
+        },
+        credentials: "include",
+      }
+    );
 
-        let user = await API.json()            
-        console.log(user);  
+    if (!API.ok) throw redirect(303, "/auth/login/");
 
-        return {
-            data: user
-        }
-    } catch (error) {
-        console.error(error)
-        return redirect(303, "/auth/login");
-    }    
+    let user = await API.json();
+    console.log(user);
+
+    return {
+      data: user,
+    };
+  } catch (error) {
+    console.error(error);
+    return redirect(303, "/auth/login");
+  }
 };

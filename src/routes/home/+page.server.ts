@@ -38,7 +38,6 @@ export const load: PageServerLoad = async ({ fetch, cookies }) => {
                 },
             }
         );
-
         const popularPostsResponse = await fetch(
             "http://localhost:5000/posts/popular-posts",
             {
