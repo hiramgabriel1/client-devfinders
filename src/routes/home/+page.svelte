@@ -139,7 +139,10 @@
             <div
               class="flex flex-row justify-between font-semibold text-slate-600 md:px-4 lg:px-0"
             >
-              <button class="lg:text-sm" on:click={() => goto("/posts/create")}>
+              <button
+                class="lg:text-sm"
+                on:click={() => goto("/home/posts/create")}
+              >
                 Comienza a escribir artículos
               </button>
               <div class="pt-1">
