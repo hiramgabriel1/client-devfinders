@@ -2,10 +2,13 @@
     import profile from "$lib/public/images/profile.png";
     import next from "$lib/public/images/next.png";
     import "../../app.css";
+
+    const handleFollowPerson = async () => {}
 </script>
 
 <div class="flex space-x-2 justify-between py-4">
-    <div class="flex space-x-2">
+    Proximamente...
+    <div class="flex space-x-2 hidden">
         <div class="pt-1">
             <img src={profile} alt="profile" class="w-6 h-6 rounded-full" />
         </div>
@@ -20,11 +23,12 @@
     </div>
 
     <div>
-        <div class="font-secondary text-s">
+        <div class="font-secondary text-s hidden"> 
             <button
                 class="bg-color-purple-light text-color-purple-dark rounded px-2"
-                >Follow</button
-            >
+                on:click={handleFollowPerson}>
+                Follow
+            </button>
         </div>
     </div>
 </div>

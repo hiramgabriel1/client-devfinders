@@ -20,23 +20,22 @@
 
   let act: boolean = false;
   let popularPosts = data.popularData;
-  let user = data.user
+  let user = data.user;
 
   console.log(data);
   console.log(popularPosts);
   console.log(user);
-  
+
   const paginationPosts = async (
     currentPage: number,
     nextPage: number,
     pageLimit: number
   ) => {};
 
-  let handleClick = () => goto('/profile')
-  
+  let handleClick = () => goto("/profile");
 </script>
 
-<Navpro on:click={handleClick}/>
+<Navpro on:click={handleClick} />
 
 <section class="border-t">
   <div class="container mx-auto flex flex-row lg:flex-row lg:space-x-6">
@@ -49,14 +48,12 @@
             </a>
           </div>
           <div>
-            <a class="hover:font-bold hover:border-b" href="/"> 
-              Suscritos 
-            </a>
+            <a class="hover:font-bold hover:border-b" href="/"> Suscritos </a>
           </div>
           <div>
             <a class="hover:font-bold hover:border-b" href="/events">
               Eventos
-            </a> 
+            </a>
           </div>
           <div>
             <a class="hover:font-bold hover:border-b" href="/news">
@@ -95,8 +92,9 @@
         <div class="py-4">
           <a
             class="bg-color-blue-highlight rounded-full font-secondary font-semibold text-white px-3 flex gap-2 text-sm pt-1"
-            href="/posts/create/">
-              Escribir artículo
+            href="/posts/create/"
+          >
+            Escribir artículo
             <div class="py-1">
               <img src={write} alt="write" class="w-4 h-4" />
             </div>
@@ -123,7 +121,7 @@
           </div>
 
           <!-- todo: followed persons -->
-          <Followed/>
+          <Followed />
 
           <div
             class="font-secondary text-color-blue-highlight font-semibold py-7"
@@ -141,7 +139,9 @@
             <div
               class="flex flex-row justify-between font-semibold text-slate-600 md:px-4 lg:px-0"
             >
-              <span class="lg:text-sm">Comienza a escribir artículos </span>
+              <button class="lg:text-sm" on:click={() => goto("/posts/create")}>
+                Comienza a escribir artículos
+              </button>
               <div class="pt-1">
                 <button><img src={close} alt="close" class="w-4 h-4" /></button>
               </div>
