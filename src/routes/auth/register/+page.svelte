@@ -1,7 +1,7 @@
 <script lang="ts">
   import "../../../app.css";
-  import { type User } from "../../../types/user.interface";
-  import { CREDENTIALS_API } from "../../utils/configfig";
+  import type { UserInterface } from "../../../types/user.interface";
+  import { CREDENTIALS_API } from "../../utils/config";
   import toast, { Toaster } from "svelte-french-toast";
 
   type loginUserType = {
