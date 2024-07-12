@@ -1,6 +1,6 @@
 export interface PopularPostInterface {
-    date: Date | string | number;
-    length: number;
+    date?: Date | string | number;
+    length?: number;
     id?: number;
     titlePost: string;
     descriptionPost: string;
@@ -8,8 +8,8 @@ export interface PopularPostInterface {
     imageUrlReference: string;
     likesCount: number;
     categoryPost: string;
-    creatorPost: { username: string };
-    creatorPostId: number;
-    createdAt: Date | string;
-    Comments: []
+    creatorPost?: { username: string };
+    creatorPostId?: number;
+    createdAt?: Date | string;
+    Comments?: []
 }
