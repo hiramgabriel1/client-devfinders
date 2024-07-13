@@ -8,7 +8,7 @@ export interface PopularPostInterface {
     imageUrlReference: string;
     likesCount: number;
     categoryPost: string;
-    creatorPost?: { username: string };
+    creatorPost?: { username: string } | undefined;
     creatorPostId?: number;
     createdAt?: Date | string;
     Comments?: []

@@ -1,9 +1,11 @@
 <script lang="ts">
   import save_b from "$lib/public/images/save_b.png";
   import profile from "$lib/public/images/profile.png";
-  import increase from "$lib/public/images/increase.png"
+  import increase from "$lib/public/images/increase.png";
   import { type PopularPostInterface } from "../../types/posts.interface";
   import "../../app.css";
+  import toast, { Toaster } from "svelte-french-toast";
+  import { goto } from "$app/navigation";
 
   export let error;
   export let popularPosts;
@@ -14,21 +16,35 @@
 
   console.log(popularPosts);
 
+  // @ts-ignore
   popularPosts.map(
     (data: PopularPostInterface) => (usernameAuthor = data.creatorPost.username)
   );
+
+  const showPostById = (id: number) => {
+    try {
+      console.log(id);
+
+      // goto(`/home/posts/post/${id}`)
+    } catch (error) {
+      toast.error("no se encontro el post");
+      console.log(error);
+    }
+  };
 </script>
 
-<div class="font-secondary py-3">
-  <h1 class="flex gap-1 font-semibold text-slate-600">
-    <div>
-      <img src={increase} alt="increase" class="w-5 h-5" />
-    </div>
-    Popular
-  </h1>
-</div>
+<Toaster />
 {#if popularPosts && popularPosts.length > 0}
   {#each popularPosts as post}
+    <div class="font-secondary py-3" on:click={() => console.log(post.id)}>
+      <h1 class="flex gap-1 font-semibold text-slate-600">
+        <div>
+          <img src={increase} alt="increase" class="w-5 h-5" />
+        </div>
+        Popular
+      </h1>
+    </div>
+
     <div class="py-2 font-secondary">
       <div>
         <div>

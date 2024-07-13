@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
   import people from "$lib/public/images/people.png";
   import profile from "$lib/public/images/profile.png";
   import save_b from "$lib/public/images/save_b.png";
@@ -10,8 +11,15 @@
   let usernameAuthor: string;
 
   popularPosts.map(
+    // @ts-ignore
     (data: PopularPostInterface) => (usernameAuthor = data.creatorPost.username)
   );
+
+  const showPostById = (id: number) => {
+    console.log(id);
+    
+    goto(`/home/posts/post/${id}`)
+  }
 </script>
 
 {#if error}
@@ -20,10 +28,12 @@
 
 {#if popularPosts && popularPosts.length > 0}
   {#each popularPosts as currentPost, index}
-    <div>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-no-static-element-interactions -->
+    <div on:click={()=> showPostById(currentPost.id)}>
       <div>
         <img src={people} alt="people" />
-      </div>
+      </div>  
       <div class="font-secondary py-4">
         <h1 class="font-bold text-xl">
           {currentPost.titlePost}

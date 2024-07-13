@@ -1,15 +1,48 @@
 <script lang="ts">
   import Navpro from "$lib/components/common/Navpro.svelte";
-  import Footer from "$lib/components/Footer.svelte"; 
+  import Footer from "$lib/components/Footer.svelte";
   import { type JobsInterface } from "../../../types/jobs.interface";
+  import toast, { Toaster } from "svelte-french-toast";
   import "../../../app.css";
 
+  let description: string = "";
   const formData: JobsInterface = {
-    username: ''
-  }
+    projectTitle: "",
+    projectDescription: description,
+    projectLocation: "",
+    isProjectRemote: false,
+    isPayment: false,
+    salaryRange: null,
+    skills: [],
+  };
+
+  const handleTextarea = (e: any) => {
+    description = e.target.value;
+
+    console.log(description);
+  };
+
+  const previewPageJob = () => {};
+  const handleSubmit = async () => {
+    const API = await fetch('/api/jobs/create/', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        // Authorization:
+      },
+
+      body: JSON.stringify(formData)
+    })
+
+    if(!API.ok) toast.error('Error al crear el post. Intenta de nuevo')
+
+    toast.success('Post creado!')
+    console.log(API);
+  };
 </script>
 
-<Navpro></Navpro>
+<Toaster />
+<Navpro />
 
 <section>
   <div class=" py-8 mx-auto">
@@ -21,6 +54,7 @@
         class="bg-color-blue-light w-20 rounded
                 border-color-blue-light text-color-blue-highlight font-bold sm:text-xs hover:bg-color-blue-highlight
                 hover:text-color-blue-light ease-in duration-200"
+        on:click={previewPageJob}
       >
         Preview
       </button>
@@ -28,6 +62,7 @@
     <div class="container flex place-content-around py-8">
       <form
         class="border rounded border-color-gray mx-auto px-4 py-4 sm:w-[70%]"
+        on:submit|preventDefault={handleSubmit}
       >
         <h2 class="font-secondary font-bold text-xl">Project Information</h2>
         <div class="py-8">
@@ -36,6 +71,7 @@
           </p>
           <input
             class="block bg-slate-200 w-full rounded focus:border-color-blue-highlight px-3"
+            bind:value={formData.projectTitle}
           />
         </div>
         <div class="flex flex-col md:flex-row gap-2">
@@ -45,6 +81,7 @@
             </p>
             <input
               class="block bg-slate-200 rounded w-full focus:border-color-blue-highlight px-3"
+              bind:value={formData.projectLocation}
             />
           </div>
           <div class="w-full">
@@ -52,9 +89,9 @@
               Employment Type
             </p>
             <select name="" id="">
-                <option value="">Full-time</option>
-                <option value="">Middle time</option>
-                <option value="">Custom</option>
+              <option value="">Full-time</option>
+              <option value="">Middle time</option>
+              <option value="">Custom</option>
             </select>
           </div>
         </div>
@@ -66,18 +103,33 @@
             <input
               type="number"
               class="block bg-slate-200 w-full rounded focus:border-color-blue-highlight px-3"
+              bind:value={formData.salaryRange}
               min="0"
-              />
+            />
           </div>
           <div class="flex md:items-center md:justify-center md:pt-9">
             <div class=" py-">
-              <label class="px-2 py-4" for="chk_1"
-                ><input type="checkbox" id="chk_1" name="chk_1" class="py-4" /> Paid
+              Is payment?
+              <label class="px-2 py-4" for="chk_1">
+                <input
+                  type="checkbox"
+                  id="chk_1"
+                  name="chk_1"
+                  class="py-4"
+                  bind:value={formData.isPayment}
+                />
+                Yes
               </label>
             </div>
             <div class=" py-">
               <label class="px-2 py-4" for="chk_2"
-                ><input type="checkbox" id="chk_2" name="chk_2" class="py-4" /> No
+                ><input
+                  type="checkbox"
+                  id="chk_2"
+                  name="chk_2"
+                  class="py-4"
+                  bind:value={formData.isPayment}
+                /> No
               </label>
             </div>
           </div>
@@ -88,6 +140,7 @@
           </p>
           <textarea
             class="block bg-slate-200 w-full rounded focus:border-color-blue-highlight px-3 py-2"
+            on:input={handleTextarea}
           >
           </textarea>
         </div>
@@ -105,11 +158,6 @@
             This is how candidate figures out what you need and why you're great
             to work with
           </p>
-        </div>
-        <div class="flex flex-row-reverse py-4">
-          <select class="font-secondary text-color-blue-highlight text-s">
-            <option>More options</option>
-          </select>
         </div>
       </form>
     </div>
@@ -149,6 +197,13 @@
             work with
           </p>
         </div>
+
+        <input
+          type="submit"
+          class="bg-color-blue-highlight text-xs w-40 border rounded py-1
+              border-color-blue-light text-white font-semibold sm:text-lg hover:bg-white hover:text-color-blue-highlight ease-in duration-200"
+          value="Save & Publish"
+        />
       </form>
     </div>
     <div class="container flex justify-end space-x-3">
