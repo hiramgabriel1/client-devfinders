@@ -1,7 +1,7 @@
 import { redirect } from "@sveltejs/kit"
 import { CREDENTIALS_API } from "../../../../utils/config"
 
-export const PORT = async ({ request }: any) => {
+export const POST = async ({ request }: any) => {
     console.log(request);
     
     try {
