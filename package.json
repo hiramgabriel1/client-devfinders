@@ -27,6 +27,7 @@
 	"type": "module",
 	"packageManager": "pnpm@9.3.0+sha256.e1f9e8d1a16607a46dd3c158b5f7a7dc7945501d1c6222d454d63d033d1d918f",
 	"dependencies": {
+		"@tinymce/tinymce-svelte": "^3.0.0",
 		"@types/jsonwebtoken": "^9.0.6",
 		"dayjs": "^1.11.11",
 		"js-cookie": "^3.0.5",
@@ -35,6 +36,7 @@
 		"node-fetch": "^3.3.2",
 		"svelte-french-toast": "^1.2.0",
 		"svelte-sonner": "^0.3.25",
-		"swiper": "^11.1.4"
+		"swiper": "^11.1.4",
+		"tinymce": "^7.2.1"
 	}
 }

@@ -3,7 +3,9 @@
   import Footer from "$lib/components/Footer.svelte";
   import { type JobsInterface } from "../../../types/jobs.interface";
   import toast, { Toaster } from "svelte-french-toast";
+  import Editor from "@tinymce/tinymce-svelte"; 
   import "../../../app.css";
+  import { API_KEY_TINY_MICROSERVICE } from "../../utils/config";
 
   let description: string = "";
   const formData: JobsInterface = {

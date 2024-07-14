@@ -92,7 +92,7 @@
         <div class="py-4">
           <a
             class="bg-color-blue-highlight rounded-full font-secondary font-semibold text-white px-3 flex gap-2 text-sm pt-1"
-            href="/posts/create/"
+            href="/home/posts/create/"
           >
             Escribir artículo
             <div class="py-1">
