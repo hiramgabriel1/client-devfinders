@@ -20,7 +20,11 @@
                     </p>
                 </div>
                 <div class="py-6 flex justify-around">
-                    <a href="/src/routes/auth/register" class="text-xs md:text-base px-1 py-1 md:px-4 md:py-3 rounded-3xl capitalize text-white bg-color-blue-highlight">Comenzar</a>
+                    <a 
+                        href="/auth/register" 
+                        class="text-xs md:text-base px-1 py-1 md:px-4 md:py-3 rounded-3xl capitalize text-white bg-color-blue-highlight">
+                        Comenzar
+                    </a>
 
                     <a href="aunnada" class="text-xs md:text-base px-1 py-1 md:px-4 md:py-3 border border-color-blue-highlight rounded-3xl capitalize text-color-blue-highlight hover:border-color-blue-light ease-in duration-200">Ver demo</a>
                 </div>

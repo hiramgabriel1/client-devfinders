@@ -9,8 +9,8 @@
     import docker_icon from "$lib/public/images/docker.svg"
     import svelt_icon from "$lib/public/images/svelte.svg"
     import tailwindcss_icon from "$lib/public/images/tailwindcss.svg"
-  import Introduction from "$lib/components/Introduction.svelte";
-  import Iconslide from "$lib/components/Iconslide.svelte";
+    import Introduction from "$lib/components/Introduction.svelte";
+    import Iconslide from "$lib/components/Iconslide.svelte";
 
 </script>
 <Nav></Nav>
