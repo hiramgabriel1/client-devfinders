@@ -1,9 +1,7 @@
 <script>
-    import FilterJobs from "$lib/components/common/FilterJobs.svelte";
-    import "../../app.css"
+    import "../../../app.css"
 </script>
 
-<FilterJobs></FilterJobs>
 <section>
     <div class="container">
         <div class="lg:py-4">
