@@ -15,6 +15,6 @@ export const POST = async ({ request }: any) => {
             body: ''
         })
     } catch (error) {
-        throw redirect(400, '/auth/login')
+        throw redirect(303, '/auth/login')
     }
 }
