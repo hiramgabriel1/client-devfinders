@@ -15,7 +15,7 @@ export const load: PageServerLoad = async ({ fetch, cookies }) => {
 
         const validateSessionUser = await fetch(
             `
-            ${CREDENTIALS_API.development}users/auth/user`,
+            ${CREDENTIALS_API.developmentExtern}users/auth/user`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -30,7 +30,7 @@ export const load: PageServerLoad = async ({ fetch, cookies }) => {
         if (!validateSessionUser.ok) throw redirect(303, "/auth/login");
 
         const postsResponse = await fetch(
-            "http://localhost:5000/posts/show-posts",
+            `${CREDENTIALS_API.developmentExtern}/posts/show-posts`,
             {
                 method: "GET",
                 headers: {
@@ -39,7 +39,7 @@ export const load: PageServerLoad = async ({ fetch, cookies }) => {
             }
         );
         const popularPostsResponse = await fetch(
-            "http://localhost:5000/posts/popular-posts",
+            `${CREDENTIALS_API.developmentExtern}/posts/popular-posts`,
             {
                 method: "GET",
                 headers: {
@@ -63,7 +63,7 @@ export const load: PageServerLoad = async ({ fetch, cookies }) => {
         return {
             dataPosts: data.posts,
             popularData: popularPostsData,
-            user: userData
+            // user: userData
         };
     } catch (error) {
         console.error("Fetch error:", error);

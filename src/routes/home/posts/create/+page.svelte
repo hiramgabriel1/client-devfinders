@@ -9,24 +9,25 @@
   import { API_KEY_TINY_MICROSERVICE } from "../../../utils/config";
 
   let act: boolean = false;
-  let formData: PopularPostInterface = {
-    date: "",
-    length: 0,
-    titlePost: "",
-    descriptionPost: "",
-    photoUrlWallpaper: "",
-    imageUrlReference: "",
-    likesCount: 0,
-    categoryPost: "",
-    creatorPost: {
-      username: "",
-    },
-    creatorPostId: 0,
-    createdAt: "",
-    Comments: [],
-  };
+  // let formData: PopularPostInterface = {
+  //   date: "",
+  //   length: 0,
+  //   titlePost: "",
+  //   descriptionPost: "",
+  //   photoUrlWallpaper: "",
+  //   imageUrlReference: "",
+  //   likesCount: 0,
+  //   categoryPost: "",
+  //   creatorPost: {
+  //     username: "",
+  //   },
+  //   creatorPostId: 0,
+  //   createdAt: "",
+  //   Comments: [],
+  // };
 
-  const handleSubmit = async () => {
+  let content: string = "";
+   const handleSubmit = async () => {
     try {
       const token = "";
       const API = await fetch("/api/posts/home-post/create", {
@@ -35,8 +36,7 @@
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-
-        body: JSON.stringify(formData),
+        body: content
       });
 
       if (!API.ok)
@@ -48,7 +48,6 @@
     }
   };
 
-  let content: string = "";
 </script>
 
 <Toaster />
@@ -61,8 +60,9 @@
     on:click={() => {
       console.log(content);
     }}>
-    Mostrar alaputaperrapelotudazorragafeteadacumeadaburguer
+
+    guardar post
   </button>
 </form>
 
-<Footer />
+<!-- <Footer /> -->

@@ -1,5 +1,4 @@
 import { CREDENTIALS_API } from "../../utils/config";
-import type { User } from "../../../types/user.interface";
 
 export const POST = async ({ request }: any) => {
   const formData = {...request};
