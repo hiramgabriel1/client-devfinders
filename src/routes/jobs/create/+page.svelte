@@ -3,9 +3,8 @@
   import Footer from "$lib/components/Footer.svelte";
   import { type JobsInterface } from "../../../types/jobs.interface";
   import toast, { Toaster } from "svelte-french-toast";
-  import Editor from "@tinymce/tinymce-svelte"; 
   import "../../../app.css";
-  import { API_KEY_TINY_MICROSERVICE } from "../../utils/config";
+  import Cookies from "js-cookie";
 
   let description: string = "";
   const formData: JobsInterface = {
@@ -24,13 +23,18 @@
     console.log(description);
   };
 
+
+  let token = Cookies.get('token')
+
+  // console.log(token);
+  
   const previewPageJob = () => {};
   const handleSubmit = async () => {
     const API = await fetch('/api/jobs/create/', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
-        // Authorization:
+        Authorization: `Bearer ${token}`
       },
 
       body: JSON.stringify(formData)
