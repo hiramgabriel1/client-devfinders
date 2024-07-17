@@ -30,7 +30,7 @@ export const load: PageServerLoad = async ({ fetch, cookies }) => {
         if (!validateSessionUser.ok) throw redirect(303, "/auth/login");
 
         const postsResponse = await fetch(
-            `${CREDENTIALS_API.developmentExtern}/posts/show-posts`,
+            `${CREDENTIALS_API.development}/posts/show-posts`,
             {
                 method: "GET",
                 headers: {
@@ -39,7 +39,7 @@ export const load: PageServerLoad = async ({ fetch, cookies }) => {
             }
         );
         const popularPostsResponse = await fetch(
-            `${CREDENTIALS_API.developmentExtern}/posts/popular-posts`,
+            `${CREDENTIALS_API.development}/posts/popular-posts`,
             {
                 method: "GET",
                 headers: {
@@ -49,6 +49,8 @@ export const load: PageServerLoad = async ({ fetch, cookies }) => {
         );
 
         if (!(postsResponse.ok && popularPostsResponse.ok)) {
+            console.log('ha ocurrido un error con los popular posts');
+
             throw new Error(
                 `Network response was not ok ${postsResponse.statusText}`
             );
@@ -60,13 +62,13 @@ export const load: PageServerLoad = async ({ fetch, cookies }) => {
         console.log(data);
         console.log(popularPostsData);
 
-        return {
-            dataPosts: data.posts,
-            popularData: popularPostsData,
-            // user: userData
-        };
+        // return {
+        //     dataPosts: data.posts,
+        //     popularData: popularPostsData,
+        //     user: userData
+        // };
     } catch (error) {
         console.error("Fetch error:", error);
-        return redirect(303, "/auth/login");
+        // return redirect(303, "/auth/login");
     }
 };
