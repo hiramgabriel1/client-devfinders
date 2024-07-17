@@ -1,7 +1,7 @@
 <script lang="ts">
   import "../../../../app.css";
+  export let data
 
-  const confirmTokenEmail = async (): Promise<void> => {
-    
-  };
+  console.log(data);
+  
 </script>
