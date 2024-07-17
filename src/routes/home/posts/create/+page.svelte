@@ -8,6 +8,18 @@
   import Editor from "@tinymce/tinymce-svelte";
   import { API_KEY_TINY_MICROSERVICE } from "../../../utils/config";
 
+  let configEditorComponent = {
+    height: 500,
+    menubar: true,
+    plugins: [
+      'advlist autolink lists link image charmap print preview anchor',
+      'searchreplace visualblocks code fullscreen',
+      'insertdatetime media table paste code help wordcount'
+    ],
+    toolbar: 'undo redo | formatselect | bold italic backcolor | \
+              alignleft aligncenter alignright alignjustify | \
+              bullist numlist outdent indent | removeformat | help | image',
+  };
   let act: boolean = false;
   let formData: PopularPostInterface = {
     date: "",
@@ -26,43 +38,49 @@
     Comments: [],
   };
 
-  const handleSubmit = async () => {
-    try {
-      const token = "";
-      const API = await fetch("/api/posts/home-post/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-
-        body: JSON.stringify(formData),
-      });
-
-      if (!API.ok)
-        toast.error("Error al intentar crear tu post. Intenta mas tarde");
-
-      toast.success("Post creado!");
-    } catch (error) {
-      toast.error("error al crear tu post, intenta de nuevo");
-    }
-  };
-
   let content: string = "";
+
+  const handleSubmit = async () => {
+    console.log(content);
+    const data = content.replaceAll("\n\n", " ").replace("\n", " ");
+    console.log(data);
+
+    // try {
+    //   const token = "";
+    //   const API = await fetch("/api/posts/home-post/create", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       Authorization: `Bearer ${token}`,
+    //     },
+
+    //     body: JSON.stringify(formData),
+    //   });
+
+    //   if (!API.ok)
+    //     toast.error("Error al intentar crear tu post. Intenta mas tarde");
+
+    //   toast.success("Post creado!");
+    // } catch (error) {
+    //   toast.error("error al crear tu post, intenta de nuevo");
+    // }
+  };
 </script>
 
 <Toaster />
 <Navpro />
 
 <form class="container">
-  <Editor apiKey={API_KEY_TINY_MICROSERVICE} bind:text={content} />
+  <Editor
+    apiKey={API_KEY_TINY_MICROSERVICE}
+    bind:text={content}
+    conf={configEditorComponent}
+  />
   <button
     class="border-t-neutral-950 bg-color-secondary-highlight p-5 border-spacing-4 ring-amber-100"
-    on:click={() => {
-      console.log(content);
-    }}>
-    Mostrar alaputaperrapelotudazorragafeteadacumeadaburguer
+    on:click={handleSubmit}
+  >
+    Publicar
   </button>
 </form>
-
 <Footer />
