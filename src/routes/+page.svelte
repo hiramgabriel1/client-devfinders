@@ -1,6 +1,7 @@
 <script>
   import "../app.css";
   import FooterLanding from "$lib/components/FooterLanding.svelte";
+  import Countdown from "$lib/components/Countdown.svelte";
 </script>
 
 <section
@@ -50,65 +51,35 @@
         esta en camino.
       </h1>
       <h2 class="mt-6 text-lg leading-8 text-gray-600">
-        La plataforma donde los profesionales de IT se conectan, comparten
-        conocimientos, y comparten sus proyectos.
+        Descubre Nuvix: La plataforma donde los profesionales de IT se conectan,
+        comparten conocimientos, y muestran sus proyectos.
       </h2>
       <div class="mt-10 flex items-center justify-center gap-x-6">
-        <a
-          class="isomorphic-link isomorphic-link--internal inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-          href="/beta-tester"
-          >Convertirse en beta tester
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-        </a>
+        <!-- <SvelteTooltip tip="Puedes convertirte en tester" top color="#3383ff"> -->
+          <a
+            class="isomorphic-link isomorphic-link--internal inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            href="/beta-tester"
+            >Convertirse en beta tester
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </a>
+        <!-- </SvelteTooltip> -->
       </div>
     </div>
-    <div class="relative mx-auto mt-10 max-w-lg flex justify-center py-20">
-      <div class="grid auto-cols-max grid-flow-col gap-5 text-center">
-        <div
-          class="bg-neutral rounded-box text-neutral-content flex flex-col p-2"
-        >
-          <span class="countdown font-mono text-5xl lg:text-8xl">
-            <span style="--value:15;">12</span>
-          </span>
-          days
-        </div>
-        <div
-          class="bg-neutral rounded-box text-neutral-content flex flex-col p-2"
-        >
-          <span class="countdown font-mono text-5xl lg:text-8xl">
-            <span style="--value:10;">4</span>
-          </span>
-          hours
-        </div>
-        <div
-          class="bg-neutral rounded-box text-neutral-content flex flex-col p-2"
-        >
-          <span class="countdown font-mono text-5xl lg:text-8xl">
-            <span style="--value:24;">30</span>
-          </span>
-          min
-        </div>
-        <div
-          class="bg-neutral rounded-box text-neutral-content flex flex-col p-2"
-        >
-          <span class="countdown font-mono text-5xl lg:text-8xl">
-            <span>10</span>
-          </span>
-          sec
-        </div>
-      </div>
-    </div>
+  
+    <!-- COUNTDOWN -->
+    <Countdown />
+
     <div class="flex justify-center py-10 lg:py-20">
       <iframe
         class="lg:w-[800px] lg:h-[500px] h-[200px] border rounded-xl"
