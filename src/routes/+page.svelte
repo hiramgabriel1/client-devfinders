@@ -1,16 +1,29 @@
+<script context="module">
+  export async function load() {
+    return {
+      title: "Tu Título de Página",
+      meta: [
+        { name: "description", content: "Nuvix es algo alaburguer" },
+        { name: "keywords", content: "palabras clave, separadas, por, comas" },
+        { name: "author", content: "Tu Nombre" },
+        { property: "og:title", content: "Título para Open Graph" },
+        { property: "og:description", content: "Descripción para Open Graph" },
+        { property: "og:image", content: "URL de tu imagen" },
+        { property: "og:url", content: "URL de tu página" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: "Título para Twitter" },
+        { name: "twitter:description", content: "Descripción para Twitter" },
+        { name: "twitter:image", content: "URL de tu imagen para Twitter" },
+      ],
+    };
+  }
+</script>
+
 <script>
   import "../app.css";
   import FooterLanding from "$lib/components/FooterLanding.svelte";
   import Countdown from "$lib/components/Countdown.svelte";
 </script>
-
-<svelte:head>
-  <title>Nuviv Dev</title>
-  <meta
-    name="description"
-    content="Nuvix es una plataforma innovadora que conecta a profesionales del sector IT. Publica proyectos, comparte conocimientos y colabora con otros expertos en programación. Únete a nuestra comunidad y descubre nuevas oportunidades en el mundo de la tecnología."
-  />
-</svelte:head>
 
 <section
   class="relative overflow-hidden bg-gradient-to-b from-blue-50 via-transparent to-transparent pb-12 pt-20 sm:pb-16 sm:pt-32 lg:pb-24 xl:pb-32 xl:pt-40"
