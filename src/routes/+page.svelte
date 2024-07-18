@@ -2,12 +2,13 @@
   import "../app.css";
   import FooterLanding from "$lib/components/FooterLanding.svelte";
   import Countdown from "$lib/components/Countdown.svelte";
+  import Seo from "$lib/Seo.svelte";
 </script>
-<svelte:head>
-  <title>cono de tu madre aaburguerrrrrrrrr</title>
-  <meta name="description" content="Probando esta puta mierda">
-</svelte:head>
 
+<Seo
+  title="Nuvix Dev | Plataforma por y para desarrolladores apasionados"
+  content="Una pagina alaputaperrraaapleptudabuguer yaaaaaaaa funcionaaaaaaaaaaaaa cabronaaaaa"
+/>
 
 <section
   class="relative overflow-hidden bg-gradient-to-b from-blue-50 via-transparent to-transparent pb-12 pt-20 sm:pb-16 sm:pt-32 lg:pb-24 xl:pb-32 xl:pt-40"
