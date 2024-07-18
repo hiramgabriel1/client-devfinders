@@ -7,7 +7,7 @@
   import "../../app.css";
 </script>
 
-<Seo title="Landing prueb" content="landing" />
+<Seo title="Landing prueb" content="landing" type='page'/>
 <Nav />
 <Introduction />
 <Iconslide />

@@ -8,6 +8,7 @@
 <Seo
   title="Nuvix Dev | Plataforma por y para desarrolladores apasionados"
   content="Una pagina alaputaperrraaapleptudabuguer yaaaaaaaa funcionaaaaaaaaaaaaa cabronaaaaa"
+  type='onl'
 />
 
 <section
