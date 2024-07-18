@@ -3,6 +3,11 @@
   import FooterLanding from "$lib/components/FooterLanding.svelte";
   import Countdown from "$lib/components/Countdown.svelte";
 </script>
+<svelte:head>
+  <title>cono de tu madre aaburguerrrrrrrrr</title>
+  <meta name="description" content="Probando esta puta mierda">
+</svelte:head>
+
 
 <section
   class="relative overflow-hidden bg-gradient-to-b from-blue-50 via-transparent to-transparent pb-12 pt-20 sm:pb-16 sm:pt-32 lg:pb-24 xl:pb-32 xl:pt-40"
