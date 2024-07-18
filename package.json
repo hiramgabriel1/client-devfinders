@@ -29,6 +29,7 @@
 	"dependencies": {
 		"@tinymce/tinymce-svelte": "^3.0.0",
 		"@types/jsonwebtoken": "^9.0.6",
+		"clerk-sveltekit": "^0.4.2",
 		"dayjs": "^1.11.11",
 		"js-cookie": "^3.0.5",
 		"jsonwebtoken": "^9.0.2",

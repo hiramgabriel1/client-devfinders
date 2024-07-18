@@ -20,11 +20,11 @@
 
   let act: boolean = false;
   let popularPosts = data.popularData;
-  // let user = data.user;
+  let user = data.user;
 
   console.log(data);
-  // console.log(popularPosts);
-  // console.log(user);
+  console.log(popularPosts);
+  console.log(user);
 
   const paginationPosts = async (
     currentPage: number,

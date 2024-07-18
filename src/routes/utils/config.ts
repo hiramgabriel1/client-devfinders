@@ -10,5 +10,10 @@ export const TOKEN = {
   producction: "",
 };
 
+export const AUTH_KEYS = {
+  PUBLIC_CLERK_PUBLISHABLE_KEY: "pk_test_cmVhbC10cm91dC0xMS5jbGVyay5hY2NvdW50cy5kZXYk",
+  CLERK_SECRET_KEY: "sk_test_sE6LEuF5Gk3BPzrl2ZGqqivpw3uOg0nkNOhtpJM1zz",
+};
+
 export const API_KEY_TINY_MICROSERVICE =
   "ie6dokribf3dz1hh6pq8hq3794akuwbm7jzlohbjbaghzd39";
