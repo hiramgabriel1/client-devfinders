@@ -35,27 +35,23 @@
   <div class="grid auto-cols-max grid-flow-col gap-5 text-center">
     <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
       <span class="countdown font-mono text-5xl lg:text-8xl">
-        <span style="--value:15;">{$timeLeft.days}</span>
+        <span style="--value:15;">{$timeLeft.days}:</span>
       </span>
-      days
     </div>
     <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
       <span class="countdown font-mono text-5xl lg:text-8xl">
-        <span style="--value:10;">{$timeLeft.hours}</span>
+        <span style="--value:10;">{$timeLeft.hours}:</span>
       </span>
-      hours
     </div>
     <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
       <span class="countdown font-mono text-5xl lg:text-8xl">
-        <span style="--value:24;">{$timeLeft.minutes}</span>
+        <span style="--value:24;">{$timeLeft.minutes}:</span>
       </span>
-      min
     </div>
     <div class="bg-neutral rounded-box text-neutral-content flex flex-col p-2">
       <span class="countdown font-mono text-5xl lg:text-8xl">
         <span>{$timeLeft.seconds}</span>
       </span>
-      sec
     </div>
   </div>
 </div>
