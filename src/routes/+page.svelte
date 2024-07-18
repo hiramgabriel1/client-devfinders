@@ -2,13 +2,27 @@
   import "../app.css";
   import FooterLanding from "$lib/components/FooterLanding.svelte";
   import Countdown from "$lib/components/Countdown.svelte";
-  import Seo from "$lib/Seo.svelte";
+  import SvelteSeo from "svelte-seo";
+  // import Seo from "$lib/Seo.svelte";
 </script>
 
+<!-- 
 <Seo
   title="Nuvix Dev | Plataforma por y para desarrolladores apasionados"
   content="Una pagina alaputaperrraaapleptudabuguer yaaaaaaaa funcionaaaaaaaaaaaaa cabronaaaaa"
   type='onl'
+/> -->
+<SvelteSeo
+  title="Nuvix Dev | Plataforma por y para desarrolladores apasionados"
+  description="Nuvix dev es una plataforma que tiene como proposito juntar"
+  canonical="https://nuvix.dev"
+  keywords="nuvixdev nuvix dev programacion programador plataforma desarrollo programadores informatica javascript java nodejs python ia ai inteligencia artificial software desarrolladores"
+  openGraph={{
+    title: "Nuvix Dev | Lanzamiento",
+    description: "Mira el lanzamiento de Nuvix Dev",
+    url: "https://nuvix.dev/",
+    type: "website"
+  }}
 />
 
 <section

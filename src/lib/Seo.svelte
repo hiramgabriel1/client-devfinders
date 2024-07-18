@@ -1,7 +1,7 @@
 <script>
   import icon from "$lib/public/images/icon.jpeg"
   import { page } from "$app/stores";
-  
+
   export let title;
   export let content;
   export let type;
