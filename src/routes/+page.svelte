@@ -1,5 +1,6 @@
 <script>
   import "../app.css";
+  import FooterLanding from "$lib/components/FooterLanding.svelte";
 </script>
 
 <section
@@ -44,15 +45,13 @@
   </div>
   <div class="relative z-20 mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mx-auto max-w-2xl text-center">
-      <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-        <span class="text-blue-600"> 
-          Nuvix.dev 
-        </span> 
-        esta en camino
+      <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-7xl">
+        <span class="text-blue-600"> Nuvix.dev </span>
+        esta en camino.
       </h1>
       <h2 class="mt-6 text-lg leading-8 text-gray-600">
-        Choose a more eco-friendly way to hydrate with our 100% recyclable
-        cartons.
+        La plataforma donde los profesionales de IT se conectan, comparten
+        conocimientos, y comparten sus proyectos.
       </h2>
       <div class="mt-10 flex items-center justify-center gap-x-6">
         <a
@@ -74,7 +73,7 @@
         </a>
       </div>
     </div>
-    <div class="relative mx-auto mt-10 max-w-lg flex justify-center py-18">
+    <div class="relative mx-auto mt-10 max-w-lg flex justify-center py-20">
       <div class="grid auto-cols-max grid-flow-col gap-5 text-center">
         <div
           class="bg-neutral rounded-box text-neutral-content flex flex-col p-2"
@@ -110,7 +109,7 @@
         </div>
       </div>
     </div>
-    <div class="flex justify-center py-12 lg:py-44">
+    <div class="flex justify-center py-10 lg:py-20">
       <iframe
         class="lg:w-[800px] lg:h-[500px] h-[200px] border rounded-xl"
         src="https://www.youtube.com/embed/0Lufc43Be5M?si=pHDiOLryjbLBMg44"
@@ -123,3 +122,4 @@
     </div>
   </div>
 </section>
+<FooterLanding />
