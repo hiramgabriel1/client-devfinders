@@ -1,6 +1,5 @@
 <script>
   import "../app.css";
-
 </script>
 
 <section
@@ -46,8 +45,10 @@
   <div class="relative z-20 mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mx-auto max-w-2xl text-center">
       <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-        Nuvix.dev sigue en desarrollo
-        <span class="text-blue-600">Boxed Water </span>
+        <span class="text-blue-600"> 
+          Nuvix.dev 
+        </span> 
+        esta en camino
       </h1>
       <h2 class="mt-6 text-lg leading-8 text-gray-600">
         Choose a more eco-friendly way to hydrate with our 100% recyclable
@@ -116,7 +117,8 @@
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen>
+        allowfullscreen
+      >
       </iframe>
     </div>
   </div>
