@@ -11,12 +11,12 @@
     import Employees from "$lib/components/Employees.svelte";
 </script>
 
-<Nav></Nav>
-<Introduction></Introduction>
-<Iconslide></Iconslide>
-<VideoSection></VideoSection>
-<Offers></Offers>
-<Collaborators></Collaborators>
-<Testers></Testers>
-<Employees></Employees>
-<Footer></Footer>
+<Nav/>
+<Introduction/>
+<Iconslide/>
+<VideoSection/>
+<Offers/>
+<Collaborators/>
+<Testers/>
+<Employees/>
+<Footer/>
