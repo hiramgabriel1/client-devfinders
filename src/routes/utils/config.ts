@@ -1,7 +1,7 @@
 export const CREDENTIALS_API = {
   developmentExtern: "https://nuvix.onrender.com",
   development: "http://localhost:5000/",
-  production: "https://",
+  production: "https://devfinder-services-production.up.railway.app",
 };
 
 export const TOKEN = {
