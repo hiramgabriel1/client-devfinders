@@ -3,15 +3,9 @@
   import FooterLanding from "$lib/components/FooterLanding.svelte";
   import Countdown from "$lib/components/Countdown.svelte";
   import SvelteSeo from "svelte-seo";
-  // import Seo from "$lib/Seo.svelte";
+  import toast, { Toaster } from "svelte-french-toast";
 </script>
 
-<!-- 
-<Seo
-  title="Nuvix Dev | Plataforma por y para desarrolladores apasionados"
-  content="Una pagina alaputaperrraaapleptudabuguer yaaaaaaaa funcionaaaaaaaaaaaaa cabronaaaaa"
-  type='onl'
-/> -->
 <SvelteSeo
   title="Nuvix Dev | Plataforma por y para desarrolladores apasionados"
   description="Nuvix dev es una plataforma que tiene como proposito juntar"
@@ -21,10 +15,10 @@
     title: "Nuvix Dev | Lanzamiento",
     description: "Mira el lanzamiento de Nuvix Dev",
     url: "https://nuvix.dev/",
-    type: "website"
+    type: "website",
   }}
 />
-
+<Toaster/>
 <section
   class="relative overflow-hidden bg-gradient-to-b from-blue-50 via-transparent to-transparent pb-12 pt-20 sm:pb-16 sm:pt-32 lg:pb-24 xl:pb-32 xl:pt-40"
 >
@@ -79,7 +73,7 @@
         <!-- <SvelteTooltip tip="Puedes convertirte en tester" top color="#3383ff"> -->
         <a
           class="isomorphic-link isomorphic-link--internal inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-          href="/beta-tester"
+          on:click={()=> toast.success('aun falta terminar el registro XD. Subi el video antes de tiempo xD')}
           >Convertirse en beta tester
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -100,11 +94,10 @@
 
     <!-- COUNTDOWN -->
     <Countdown />
-
     <div class="flex justify-center py-10 lg:py-20">
       <iframe
         class="lg:w-[800px] lg:h-[500px] h-[200px] border rounded-xl"
-        src="https://www.youtube.com/embed/0Lufc43Be5M?si=pHDiOLryjbLBMg44"
+        src="https://www.youtube.com/embed/F2oWNDq7qiM?si=ripAP3tYt8tEbG_K"
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin"
