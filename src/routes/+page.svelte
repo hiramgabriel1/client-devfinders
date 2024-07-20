@@ -70,11 +70,9 @@
         comparten conocimientos, y muestran sus proyectos.
       </h2>
       <div class="mt-10 flex items-center justify-center gap-x-6">
-        <!-- <SvelteTooltip tip="Puedes convertirte en tester" top color="#3383ff"> -->
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <a
           class="isomorphic-link isomorphic-link--internal inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-          on:click={()=> toast.success('aun falta terminar el registro XD. Subi el video antes de tiempo xD')}
+          href="/beta-tester/"
           >Convertirse en beta tester
           <svg
             xmlns="http://www.w3.org/2000/svg"

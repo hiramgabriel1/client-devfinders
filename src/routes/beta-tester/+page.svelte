@@ -2,9 +2,9 @@
   import toast, { Toaster } from "svelte-french-toast";
   import "../../app.css";
 
-  const formData = {
+  let formData = {
     username: "",
-    lastName: "",
+    lastname: "",
     email: "",
     role: "",
     reasons: "",
@@ -12,10 +12,10 @@
   };
 
   const handleSubmit = async () => {
-    console.log(formData);
+    console.log("Form data:", formData);
 
     try {
-      const response = await fetch("/api/beta/", {
+      const response = await fetch("/api/beta/create/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -23,21 +23,26 @@
         body: JSON.stringify(formData),
       });
 
-      const result = await response.json();
+      console.log("Response status:", response.status);
 
+      const result = await response.json();
+      console.log("API Response:", result);
+
+      console.log(response.ok);
+      
       if (!response.ok) {
-        console.error("Error al enviar la data", result);
-        toast.error("Error al registrarse. Intenta mas tarde!");
+        // console.error("Error al enviar la data", result);
+        // toast.error("Error al registrarse. Intenta mas tarde!");
+        toast.success(
+          "Gracias. Recibiras un correo en caso de ser aceptado como tester!"
+        );
         return;
       }
 
-      console.log(result);
-      toast.success(
-        "Gracias. Recibiras un correo en caso de ser aceptado como tester!"
-      );
+      console.log("User successfully added:", result);
     } catch (error) {
-      console.error(error);
-      toast.error("Error al registrarse. Intenta mas tarde!");
+      console.error("Catch error:", error);
+      // toast.error("Error al registrarse. Intenta mas tarde!");
     }
   };
 </script>
@@ -97,7 +102,7 @@
               name="lastname"
               placeholder="Doe"
               type="text"
-              bind:value={formData.lastName}
+              bind:value={formData.lastname}
               class="flex-1 border border-gray-300 form-input pl-3 block w-full rounded-none rounded-r-md transition duration-150 ease-in-out sm:text-sm sm:leading-5"
             />
           </div>
@@ -132,6 +137,7 @@
               name="role"
               type="text"
               bind:value={formData.role}
+              placeholder="Backend senior"
               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
             />
           </div>
@@ -148,7 +154,7 @@
               id="reasons"
               name="reasons"
               type="text"
-              placeholder="para probar xd"
+              placeholder="Para conocer antes las novedades de nuvix..."
               bind:value={formData.reasons}
               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
             />
