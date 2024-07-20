@@ -4,7 +4,7 @@ export const POST = async ({ request, fetch }: any) => {
 
     try {
         const api = await fetch(
-            `http://localhost:5000/beta/add-user/`,
+            `https://devfinder-services-production.up.railway.app/beta/add-user/`,
             {
                 method: "POST",
                 headers: {
