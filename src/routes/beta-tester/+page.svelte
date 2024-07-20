@@ -11,6 +11,17 @@
     isAccepted: false,
   };
 
+  const resetForm = () => {
+    formData = {
+      username: "",
+      lastname: "",
+      email: "",
+      role: "",
+      reasons: "",
+      isAccepted: false,
+    };
+  };
+
   const handleSubmit = async () => {
     console.log("Form data:", formData);
 
@@ -29,20 +40,21 @@
       console.log("API Response:", result);
 
       console.log(response.ok);
-      
+
       if (!response.ok) {
-        // console.error("Error al enviar la data", result);
-        // toast.error("Error al registrarse. Intenta mas tarde!");
+        resetForm();
+
         toast.success(
           "Gracias. Recibiras un correo en caso de ser aceptado como tester!"
         );
-        return;
       }
+      resetForm();
 
       console.log("User successfully added:", result);
     } catch (error) {
+      resetForm();
+
       console.error("Catch error:", error);
-      // toast.error("Error al registrarse. Intenta mas tarde!");
     }
   };
 </script>
@@ -85,6 +97,7 @@
               placeholder="Jafet"
               type="text"
               bind:value={formData.username}
+              required
               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
             />
           </div>
@@ -103,6 +116,7 @@
               placeholder="Doe"
               type="text"
               bind:value={formData.lastname}
+              required
               class="flex-1 border border-gray-300 form-input pl-3 block w-full rounded-none rounded-r-md transition duration-150 ease-in-out sm:text-sm sm:leading-5"
             />
           </div>
@@ -121,6 +135,7 @@
               placeholder="user@example.com"
               type="email"
               bind:value={formData.email}
+              required
               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
             />
           </div>
@@ -138,6 +153,7 @@
               type="text"
               bind:value={formData.role}
               placeholder="Backend senior"
+              required
               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
             />
           </div>
@@ -156,6 +172,7 @@
               type="text"
               placeholder="Para conocer antes las novedades de nuvix..."
               bind:value={formData.reasons}
+              required
               class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
             />
           </div>
