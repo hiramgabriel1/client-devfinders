@@ -6,7 +6,7 @@ export const POST = async ({ request, fetch }: any) => {
 
     try {
         const api = await fetch(
-            `${CREDENTIALS_API.development}beta/add-user/`,
+            `${CREDENTIALS_API.production}beta/add-user/`,
             {
                 method: "POST",
                 headers: {
