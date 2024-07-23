@@ -48,6 +48,7 @@
           "Gracias. Recibiras un correo en caso de ser aceptado como tester!"
         );
       }
+      
       resetForm();
 
       console.log("User successfully added:", result);
