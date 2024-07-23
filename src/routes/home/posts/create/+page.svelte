@@ -11,22 +11,55 @@
   import img from "$lib/public/images/img.png";
   import diamond from "$lib/public/images/diamond.png";
   import triangle from "$lib/public/images/triangle.png";
+  import Posts from "$lib/components/Posts.svelte";
+  import toast, { Toaster } from "svelte-french-toast";
+  // import { send } from "vite";
+  // import { handle } from "../../../../hooks/hook.server";
 
   let files: any;
   let formData = {
-    
-  }
+    titlePost: "",
+    descriptionPost: "",
+    photoUrlWallpaper: files,
+    imageUrlReference: "",
+    likesCount: "",
+    categoryPost: "",
+  };
 
-  $: if(files) {
-    for(const file of files){
+  $: if (files) {
+    for (const file of files) {
       console.log(file);
     }
   }
 
   const changeWallpaperImage = (e: Event) => {
     console.log(encodeURIComponent);
-  };  
+  };
+
+  const handleSubmit = async () => {
+    try {
+      console.log(formData);
+      const sendData = await fetch("/api/posts/home-post/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!sendData)
+        toast.error("error al publicar, intenta de nuevo mas tarde");
+
+      const response = await sendData.json();
+
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 </script>
+
+<Toaster />
 
 <section>
   <div class=" px-3 pt-3 lg:pl-10 lg:py-6">
@@ -109,7 +142,7 @@
         </div>
       </div>
     </div>
-    <form>
+    <form on:submit|preventDefault={handleSubmit}>
       <div class="font-secondary py-4">
         <div class="flex">
           <h2 class="font-semibold text-lg lg:text-2xl">
@@ -123,7 +156,11 @@
           >
         </div>
         <div class="w-full pb-1">
-          <input type="text" class="w-full rounded-lg bg-gray-200" />
+          <input
+            type="text"
+            bind:value={formData.titlePost}
+            class="w-full rounded-lg bg-gray-200"
+          />
         </div>
       </div>
 
@@ -138,7 +175,7 @@
         </div>
         <div class="flex h-auto">
           <div class="w-full">
-            <textarea class="w-full py-12 rounded-lg bg-gray-200 h-[100%]"
+            <textarea bind:value={formData.descriptionPost} class="w-full py-12 rounded-lg bg-gray-200 h-[100%]"
             ></textarea>
           </div>
           <div class="flex-col pt-2 items-center">
@@ -248,6 +285,7 @@
           <div class="w-full pb-4">
             <input
               type="text"
+              bind:value={formData.categoryPost}
               placeholder="Desarrollo backend..."
               class="w-full rounded-lg bg-gray-200 px-2 placeholder:text-sm"
             />
@@ -291,9 +329,9 @@
       </div>
 
       <div class="font-secondary pb-12">
-        <button class="bg-color-blue-highlight rounded-xl text-white px-3 py-2"
-        type="submit"  
-        >Publicar</button
+        <button
+          class="bg-color-blue-highlight rounded-xl text-white px-3 py-2"
+          type="submit">Publicar</button
         >
       </div>
     </form>

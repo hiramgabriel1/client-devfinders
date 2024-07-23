@@ -13,3 +13,12 @@ export interface PopularPostInterface {
     createdAt?: Date | string;
     Comments?: []
 }
+
+export interface Posts {
+    titlePost: string;
+    descriptionPost: string;
+    photoUrlWallpaper: string;
+    imageUrlReference: string;
+    likesCount: string
+    categoryPost: string
+}
